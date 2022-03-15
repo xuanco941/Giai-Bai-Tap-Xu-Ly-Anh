@@ -1,9 +1,9 @@
 class ThuatToan
 {
-    public void Sobel(double[,] maTran)
+    public void SobelAndPrewitt(double[,] maTran)
 
     {
-        Console.WriteLine("----------Sobel-----------");
+        Console.WriteLine("----------Sobel and Prewitt-----------");
         double[,] H1 = new double[3, 3];
         double[,] H2 = new double[3, 3];
         Console.WriteLine("Nhập ma trận 3x3 H1:");
@@ -185,7 +185,7 @@ class ThuatToan
         {
             for (int j = 0; j < 5; j++)
             {
-                System.Console.Write($"{(Math.Abs(Gx[i,j])) + (Math.Abs(Gy[i, j]))} \t");
+                System.Console.Write($"{(Math.Abs(Gx[i, j])) + (Math.Abs(Gy[i, j]))} \t");
             }
             System.Console.WriteLine();
 
@@ -193,6 +193,139 @@ class ThuatToan
 
     }
 
+    public void Alpha(double[,] maTran)
+    {
+        Console.WriteLine("----------Alpha với cửa sổ 3x3 với d = ?-----------");
+        System.Console.WriteLine("Nhập giá trị của d: ");
+        double d = Convert.ToDouble(Console.ReadLine());
+        double[,] matrixResult = new double[5, 5];
+
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                double firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition;
+
+                try
+                {
+                    firstPosition = (maTran[i - 1, j - 1] != 0) ? maTran[i - 1, j - 1] : 0;
+                }
+                catch
+                {
+                    firstPosition = 0;
+                }
+                try
+                {
+                    secondPosition = (maTran[i - 1, j] != 0) ? maTran[i - 1, j] : 0;
+                }
+                catch
+                {
+                    secondPosition = 0;
+                }
+                try
+                {
+                    thirdPosition = (maTran[i - 1, j + 1] != 0) ? maTran[i - 1, j + 1] : 0;
+                }
+                catch
+                {
+                    thirdPosition = 0;
+                }
+                try
+                {
+                    fourthPosition = (maTran[i, j - 1] != 0) ? maTran[i, j - 1] : 0;
+                }
+                catch
+                {
+                    fourthPosition = 0;
+                }
+                try
+                {
+                    fifthPosition = (maTran[i, j] != 0) ? maTran[i, j] : 0;
+                }
+                catch
+                {
+                    fifthPosition = 0;
+                }
+                try
+                {
+                    sixthPosition = (maTran[i, j + 1] != 0) ? maTran[i, j + 1] : 0;
+                }
+                catch
+                {
+                    sixthPosition = 0;
+                }
+                try
+                {
+                    seventhPosition = (maTran[i + 1, j - 1] != 0) ? maTran[i + 1, j - 1] : 0;
+                }
+                catch
+                {
+                    seventhPosition = 0;
+                }
+                try
+                {
+                    eighthPosition = (maTran[i + 1, j] != 0) ? maTran[i + 1, j] : 0;
+                }
+                catch
+                {
+                    eighthPosition = 0;
+                }
+                try
+                {
+                    ninethPosition = (maTran[i + 1, j + 1] != 0) ? maTran[i + 1, j + 1] : 0;
+                }
+                catch
+                {
+                    ninethPosition = 0;
+                }
+
+
+                double[] arrMatrixSmall = { firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition };
+                double result = 0;
+                string stringResult = "";
+                bool isPassMax = false;
+                bool isPassMin = false;
+                for (int e = 0; e < arrMatrixSmall.Length; e++)
+                {
+                    if (arrMatrixSmall[e] == 0)
+                    {
+                        continue;
+                    }
+                    if (arrMatrixSmall[e] == arrMatrixSmall.Max() && isPassMax == false)
+                    {
+                        isPassMax = true;
+                        continue;
+                    }
+                    if (arrMatrixSmall[e] == arrMatrixSmall.Min() && isPassMin == false)
+                    {
+                        isPassMin = true;
+                        continue;
+                    }
+                    result += arrMatrixSmall[e];
+                    stringResult += "+" + arrMatrixSmall[e].ToString();
+                }
+
+                double newResult = Math.Round(result / (3 * 3 - d));
+                matrixResult[i, j] = newResult;
+                System.Console.WriteLine($"I({i},{j})=({stringResult})/(3*3-{d})={Math.Round(result / (3 * 3 - d),4)}={newResult}");
+                System.Console.WriteLine();
+
+            }
+        }
+
+        System.Console.WriteLine();
+
+        System.Console.WriteLine("----------Ma trận hoàn chỉnh-------------");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(matrixResult[i, j] + "\t");
+            }
+            System.Console.WriteLine();
+        }
+
+    }
 
 
 

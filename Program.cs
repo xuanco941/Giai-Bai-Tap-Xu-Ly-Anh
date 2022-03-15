@@ -25,7 +25,8 @@ for (int i = 0; i < 5; i++)
 }
 
 Console.WriteLine("Chọn loại thuật toán: ");
-System.Console.WriteLine("1.Sobel");
+System.Console.WriteLine("1.Sobel và Prewitt");
+System.Console.WriteLine("2.Alpha");
 System.Console.WriteLine("----------------------------------------------------");
 
 ThuatToan thuattoan = new ThuatToan();
@@ -34,7 +35,9 @@ int number = Convert.ToInt32(Console.ReadLine());
 switch (number)
 {
     case 1:
-        thuattoan.Sobel(maTran);
+        thuattoan.SobelAndPrewitt(maTran);
         break;
-
+    case 2:
+        thuattoan.Alpha(maTran);
+        break;
 }
