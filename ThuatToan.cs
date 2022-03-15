@@ -199,7 +199,7 @@ class ThuatToan
         System.Console.WriteLine("Nhập giá trị của d: ");
         double d = Convert.ToDouble(Console.ReadLine());
         double[,] matrixResult = new double[5, 5];
-
+        System.Console.WriteLine("-------------Kết quả------------");
         for (int i = 0; i < 5; i++)
         {
             for (int j = 0; j < 5; j++)
@@ -307,7 +307,13 @@ class ThuatToan
 
                 double newResult = Math.Round(result / (3 * 3 - d));
                 matrixResult[i, j] = newResult;
-                System.Console.WriteLine($"I({i},{j})=({stringResult})/(3*3-{d})={Math.Round(result / (3 * 3 - d),4)}={newResult}");
+                Array.Sort(arrMatrixSmall);
+                foreach (double item in arrMatrixSmall)
+                {
+                    System.Console.Write(item + "   ");
+                }
+                System.Console.WriteLine();
+                System.Console.WriteLine($"I({i},{j})=({stringResult})/(3*3-{d})={Math.Round(result / (3 * 3 - d), 4)}={newResult}");
                 System.Console.WriteLine();
 
             }
@@ -327,6 +333,123 @@ class ThuatToan
 
     }
 
+    public void LocNhiThuc(double[,] maTran)
+    {
+        Console.WriteLine("----------Lọc Nhị Thức-----------");
+        System.Console.WriteLine("Nhập ma trận mặt nạ 3x3: ");
+        double[,] B = new double[3, 3];
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Console.WriteLine($"Điểm ({i},{j}): ");
+                var x = Console.ReadLine();
+                B[i, j] = Convert.ToDouble(x);
+            }
+            Console.WriteLine();
+        }
+        System.Console.WriteLine("Nhập mẫu số (dạng 1 phần) của K(b) (vd: 1/16 thì nhập 16 thôi) : ");
+        double K_b = Convert.ToDouble(Console.ReadLine());
 
+        System.Console.WriteLine("----------Kết quả----------");
+
+        double[,] matrixResult = new double[5, 5];
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                double firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition;
+
+                try
+                {
+                    firstPosition = (maTran[i - 1, j - 1] != 0) ? maTran[i - 1, j - 1] : 0;
+                }
+                catch
+                {
+                    firstPosition = 0;
+                }
+                try
+                {
+                    secondPosition = (maTran[i - 1, j] != 0) ? maTran[i - 1, j] : 0;
+                }
+                catch
+                {
+                    secondPosition = 0;
+                }
+                try
+                {
+                    thirdPosition = (maTran[i - 1, j + 1] != 0) ? maTran[i - 1, j + 1] : 0;
+                }
+                catch
+                {
+                    thirdPosition = 0;
+                }
+                try
+                {
+                    fourthPosition = (maTran[i, j - 1] != 0) ? maTran[i, j - 1] : 0;
+                }
+                catch
+                {
+                    fourthPosition = 0;
+                }
+                try
+                {
+                    fifthPosition = (maTran[i, j] != 0) ? maTran[i, j] : 0;
+                }
+                catch
+                {
+                    fifthPosition = 0;
+                }
+                try
+                {
+                    sixthPosition = (maTran[i, j + 1] != 0) ? maTran[i, j + 1] : 0;
+                }
+                catch
+                {
+                    sixthPosition = 0;
+                }
+                try
+                {
+                    seventhPosition = (maTran[i + 1, j - 1] != 0) ? maTran[i + 1, j - 1] : 0;
+                }
+                catch
+                {
+                    seventhPosition = 0;
+                }
+                try
+                {
+                    eighthPosition = (maTran[i + 1, j] != 0) ? maTran[i + 1, j] : 0;
+                }
+                catch
+                {
+                    eighthPosition = 0;
+                }
+                try
+                {
+                    ninethPosition = (maTran[i + 1, j + 1] != 0) ? maTran[i + 1, j + 1] : 0;
+                }
+                catch
+                {
+                    ninethPosition = 0;
+                }
+
+                double result = ((firstPosition * B[0, 0]) + (secondPosition * B[0, 1]) + (thirdPosition * B[0, 2]) + (fourthPosition * B[1, 0]) + (fifthPosition * B[1, 1]) + (sixthPosition * B[1, 2]) + (seventhPosition * B[2, 0]) + (eighthPosition * B[2, 1]) + (ninethPosition * B[2, 2])) / K_b;
+                matrixResult[i, j] = Math.Round(result);
+                System.Console.WriteLine($"({firstPosition}*{B[0, 0]})+({secondPosition}*{B[0, 1]})+({thirdPosition}*{B[0, 2]})+({fourthPosition}*{B[1, 0]})+({fifthPosition}*{B[1, 1]})+({sixthPosition}*{B[1, 2]})+({seventhPosition}*{B[2, 0]})+({eighthPosition}*{B[2, 1]})+({ninethPosition}*{B[2, 2]})={Math.Round(result, 5)}={Math.Round(result)}");
+                System.Console.WriteLine();
+            }
+        }
+        System.Console.WriteLine();
+
+        System.Console.WriteLine("----------Ma trận hoàn chỉnh-------------");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(matrixResult[i, j] + "\t");
+            }
+            System.Console.WriteLine();
+        }
+    }
 
 }
