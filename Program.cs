@@ -2,7 +2,6 @@
 Console.WriteLine("Áp Dụng Cho Ma Trận 5x5 Nhé!!! Hãy nhập tất cả bằng số !!!!");
 double[,] maTran = new double[5, 5];
 Console.WriteLine("Nhập ma trận 5x5 đầu vào: ");
-
 for (int i = 0; i < 5; i++)
 {
     for (int j = 0; j < 5; j++)
@@ -31,6 +30,7 @@ System.Console.WriteLine("3.Lọc nhị thức");
 System.Console.WriteLine("4.Lọc nhiễu Min");
 System.Console.WriteLine("5.Lọc nhiễu Max");
 System.Console.WriteLine("6.Lọc nhiễu trung điểm");
+System.Console.WriteLine("7.Lọc nhiễu trung bình hình học");
 System.Console.WriteLine("----------------------------------------------------");
 
 ThuatToan thuattoan = new ThuatToan();
@@ -55,5 +55,8 @@ switch (number)
         break;
     case 6:
         thuattoan.LocNhieuTrungDiem(maTran);
+        break;
+    case 7:
+        thuattoan.LocNhieuTrungBinhHinhHoc(maTran);
         break;
 }
