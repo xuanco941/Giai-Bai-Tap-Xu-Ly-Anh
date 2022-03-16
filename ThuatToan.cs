@@ -1277,7 +1277,7 @@ class ThuatToan
 
                 double result = ((firstPosition * B[0, 0]) + (secondPosition * B[0, 1]) + (thirdPosition * B[0, 2]) + (fourthPosition * B[1, 0]) + (fifthPosition * B[1, 1]) + (sixthPosition * B[1, 2]) + (seventhPosition * B[2, 0]) + (eighthPosition * B[2, 1]) + (ninethPosition * B[2, 2]));
                 matrixResult[i, j] = Math.Round(result, MidpointRounding.AwayFromZero);
-                System.Console.WriteLine($"G({i},{j})=({firstPosition}*{B[0, 0]})+({secondPosition}*{B[0, 1]})+({thirdPosition}*{B[0, 2]})+({fourthPosition}*{B[1, 0]})+({fifthPosition}*{B[1, 1]})+({sixthPosition}*{B[1, 2]})+({seventhPosition}*{B[2, 0]})+({eighthPosition}*{B[2, 1]})+({ninethPosition}*{B[2, 2]})={Math.Round(result, 5, MidpointRounding.AwayFromZero)}={Math.Round(result, MidpointRounding.AwayFromZero)}");
+                System.Console.WriteLine($"I({i},{j})=({firstPosition}*{B[0, 0]})+({secondPosition}*{B[0, 1]})+({thirdPosition}*{B[0, 2]})+({fourthPosition}*{B[1, 0]})+({fifthPosition}*{B[1, 1]})+({sixthPosition}*{B[1, 2]})+({seventhPosition}*{B[2, 0]})+({eighthPosition}*{B[2, 1]})+({ninethPosition}*{B[2, 2]})={Math.Round(result, 5, MidpointRounding.AwayFromZero)}={Math.Round(result, MidpointRounding.AwayFromZero)}");
                 System.Console.WriteLine();
             }
         }

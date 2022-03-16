@@ -10,4 +10,4 @@ C#
 
 --B3: DI CHUYỂN ĐẾN MỤC VỪA GIẢI NÉN BẰNG LỆNH "cd"
 
-B4: CHẠY LỆNH "dotnet run" 
+--B4: CHẠY LỆNH "dotnet run" 
