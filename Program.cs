@@ -1,5 +1,9 @@
 ﻿Console.OutputEncoding = System.Text.Encoding.UTF8;
+System.Console.WriteLine("CODE BY ĐỖ VĂN XUÂN - 61PM2");
+System.Console.WriteLine();
 Console.WriteLine("Áp Dụng Cho Ma Trận 5x5 Nhé!!! Hãy nhập tất cả bằng số !!!!");
+System.Console.WriteLine("Hiện có: Sobel và Prewitt, Alpha, Lọc nhị thức, Lọc nhiễu Min, Lọc nhiễu Max, Lọc nhiễu trung điểm, Lọc nhiễu trung bình hình học, Dò biên Kirsch");
+System.Console.WriteLine();
 double[,] maTran = new double[5, 5];
 Console.WriteLine("Nhập ma trận 5x5 đầu vào: ");
 for (int i = 0; i < 5; i++)
@@ -31,6 +35,7 @@ System.Console.WriteLine("4.Lọc nhiễu Min");
 System.Console.WriteLine("5.Lọc nhiễu Max");
 System.Console.WriteLine("6.Lọc nhiễu trung điểm");
 System.Console.WriteLine("7.Lọc nhiễu trung bình hình học");
+System.Console.WriteLine("8.Dò biên Kirsch");
 System.Console.WriteLine("----------------------------------------------------");
 
 ThuatToan thuattoan = new ThuatToan();
@@ -58,5 +63,8 @@ switch (number)
         break;
     case 7:
         thuattoan.LocNhieuTrungBinhHinhHoc(maTran);
+        break;
+    case 8:
+        thuattoan.DoBienKirsch(maTran);
         break;
 }
