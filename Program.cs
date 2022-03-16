@@ -36,6 +36,7 @@ System.Console.WriteLine("5.Lọc nhiễu Max");
 System.Console.WriteLine("6.Lọc nhiễu trung điểm");
 System.Console.WriteLine("7.Lọc nhiễu trung bình hình học");
 System.Console.WriteLine("8.Dò biên Kirsch");
+System.Console.WriteLine("9.Sử dụng toán tử Laplacian");
 System.Console.WriteLine("----------------------------------------------------");
 
 ThuatToan thuattoan = new ThuatToan();
@@ -66,5 +67,8 @@ switch (number)
         break;
     case 8:
         thuattoan.DoBienKirsch(maTran);
+        break;
+    case 9:
+        thuattoan.Laplacian(maTran);
         break;
 }

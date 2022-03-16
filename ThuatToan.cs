@@ -435,7 +435,7 @@ class ThuatToan
 
                 double result = ((firstPosition * B[0, 0]) + (secondPosition * B[0, 1]) + (thirdPosition * B[0, 2]) + (fourthPosition * B[1, 0]) + (fifthPosition * B[1, 1]) + (sixthPosition * B[1, 2]) + (seventhPosition * B[2, 0]) + (eighthPosition * B[2, 1]) + (ninethPosition * B[2, 2])) / K_b;
                 matrixResult[i, j] = Math.Round(result, MidpointRounding.AwayFromZero);
-                System.Console.WriteLine($"({firstPosition}*{B[0, 0]})+({secondPosition}*{B[0, 1]})+({thirdPosition}*{B[0, 2]})+({fourthPosition}*{B[1, 0]})+({fifthPosition}*{B[1, 1]})+({sixthPosition}*{B[1, 2]})+({seventhPosition}*{B[2, 0]})+({eighthPosition}*{B[2, 1]})+({ninethPosition}*{B[2, 2]})={Math.Round(result, 5)}={Math.Round(result)}");
+                System.Console.WriteLine($"I({i},{j})=(({firstPosition}*{B[0, 0]})+({secondPosition}*{B[0, 1]})+({thirdPosition}*{B[0, 2]})+({fourthPosition}*{B[1, 0]})+({fifthPosition}*{B[1, 1]})+({sixthPosition}*{B[1, 2]})+({seventhPosition}*{B[2, 0]})+({eighthPosition}*{B[2, 1]})+({ninethPosition}*{B[2, 2]}))/16={Math.Round(result, 5)}={Math.Round(result,MidpointRounding.AwayFromZero)}");
                 System.Console.WriteLine();
             }
         }
@@ -1094,14 +1094,14 @@ class ThuatToan
 
                 // Nhân chập 3x3 với K
 
-                double result1 = Math.Round(firstPosition * K1[0, 0] + secondPosition * K1[0, 1] + thirdPosition * K1[0, 2] + fourthPosition * K1[1, 0] + fifthPosition * K1[1, 1] + sixthPosition * K1[1, 2] + seventhPosition * K1[2, 0] + eighthPosition * K1[2, 1] + ninethPosition * K1[2, 2],4,MidpointRounding.AwayFromZero);
-                double result2 = Math.Round(firstPosition * K2[0, 0] + secondPosition * K2[0, 1] + thirdPosition * K2[0, 2] + fourthPosition * K2[1, 0] + fifthPosition * K2[1, 1] + sixthPosition * K2[1, 2] + seventhPosition * K2[2, 0] + eighthPosition * K2[2, 1] + ninethPosition * K2[2, 2],4,MidpointRounding.AwayFromZero);
-                double result3 = Math.Round(firstPosition * K3[0, 0] + secondPosition * K3[0, 1] + thirdPosition * K3[0, 2] + fourthPosition * K3[1, 0] + fifthPosition * K3[1, 1] + sixthPosition * K3[1, 2] + seventhPosition * K3[2, 0] + eighthPosition * K3[2, 1] + ninethPosition * K3[2, 2],4,MidpointRounding.AwayFromZero);
-                double result4 = Math.Round(firstPosition * K4[0, 0] + secondPosition * K4[0, 1] + thirdPosition * K4[0, 2] + fourthPosition * K4[1, 0] + fifthPosition * K4[1, 1] + sixthPosition * K4[1, 2] + seventhPosition * K4[2, 0] + eighthPosition * K4[2, 1] + ninethPosition * K4[2, 2],4,MidpointRounding.AwayFromZero);
-                double result5 = Math.Round(firstPosition * K5[0, 0] + secondPosition * K5[0, 1] + thirdPosition * K5[0, 2] + fourthPosition * K5[1, 0] + fifthPosition * K5[1, 1] + sixthPosition * K5[1, 2] + seventhPosition * K5[2, 0] + eighthPosition * K5[2, 1] + ninethPosition * K5[2, 2],4,MidpointRounding.AwayFromZero);
-                double result6 = Math.Round(firstPosition * K6[0, 0] + secondPosition * K6[0, 1] + thirdPosition * K6[0, 2] + fourthPosition * K6[1, 0] + fifthPosition * K6[1, 1] + sixthPosition * K6[1, 2] + seventhPosition * K6[2, 0] + eighthPosition * K6[2, 1] + ninethPosition * K6[2, 2],4,MidpointRounding.AwayFromZero);
-                double result7 = Math.Round(firstPosition * K7[0, 0] + secondPosition * K7[0, 1] + thirdPosition * K7[0, 2] + fourthPosition * K7[1, 0] + fifthPosition * K7[1, 1] + sixthPosition * K7[1, 2] + seventhPosition * K7[2, 0] + eighthPosition * K7[2, 1] + ninethPosition * K7[2, 2],4,MidpointRounding.AwayFromZero);
-                double result8 = Math.Round(firstPosition * K8[0, 0] + secondPosition * K8[0, 1] + thirdPosition * K8[0, 2] + fourthPosition * K8[1, 0] + fifthPosition * K8[1, 1] + sixthPosition * K8[1, 2] + seventhPosition * K8[2, 0] + eighthPosition * K8[2, 1] + ninethPosition * K8[2, 2],4,MidpointRounding.AwayFromZero);
+                double result1 = Math.Round(firstPosition * K1[0, 0] + secondPosition * K1[0, 1] + thirdPosition * K1[0, 2] + fourthPosition * K1[1, 0] + fifthPosition * K1[1, 1] + sixthPosition * K1[1, 2] + seventhPosition * K1[2, 0] + eighthPosition * K1[2, 1] + ninethPosition * K1[2, 2], 4, MidpointRounding.AwayFromZero);
+                double result2 = Math.Round(firstPosition * K2[0, 0] + secondPosition * K2[0, 1] + thirdPosition * K2[0, 2] + fourthPosition * K2[1, 0] + fifthPosition * K2[1, 1] + sixthPosition * K2[1, 2] + seventhPosition * K2[2, 0] + eighthPosition * K2[2, 1] + ninethPosition * K2[2, 2], 4, MidpointRounding.AwayFromZero);
+                double result3 = Math.Round(firstPosition * K3[0, 0] + secondPosition * K3[0, 1] + thirdPosition * K3[0, 2] + fourthPosition * K3[1, 0] + fifthPosition * K3[1, 1] + sixthPosition * K3[1, 2] + seventhPosition * K3[2, 0] + eighthPosition * K3[2, 1] + ninethPosition * K3[2, 2], 4, MidpointRounding.AwayFromZero);
+                double result4 = Math.Round(firstPosition * K4[0, 0] + secondPosition * K4[0, 1] + thirdPosition * K4[0, 2] + fourthPosition * K4[1, 0] + fifthPosition * K4[1, 1] + sixthPosition * K4[1, 2] + seventhPosition * K4[2, 0] + eighthPosition * K4[2, 1] + ninethPosition * K4[2, 2], 4, MidpointRounding.AwayFromZero);
+                double result5 = Math.Round(firstPosition * K5[0, 0] + secondPosition * K5[0, 1] + thirdPosition * K5[0, 2] + fourthPosition * K5[1, 0] + fifthPosition * K5[1, 1] + sixthPosition * K5[1, 2] + seventhPosition * K5[2, 0] + eighthPosition * K5[2, 1] + ninethPosition * K5[2, 2], 4, MidpointRounding.AwayFromZero);
+                double result6 = Math.Round(firstPosition * K6[0, 0] + secondPosition * K6[0, 1] + thirdPosition * K6[0, 2] + fourthPosition * K6[1, 0] + fifthPosition * K6[1, 1] + sixthPosition * K6[1, 2] + seventhPosition * K6[2, 0] + eighthPosition * K6[2, 1] + ninethPosition * K6[2, 2], 4, MidpointRounding.AwayFromZero);
+                double result7 = Math.Round(firstPosition * K7[0, 0] + secondPosition * K7[0, 1] + thirdPosition * K7[0, 2] + fourthPosition * K7[1, 0] + fifthPosition * K7[1, 1] + sixthPosition * K7[1, 2] + seventhPosition * K7[2, 0] + eighthPosition * K7[2, 1] + ninethPosition * K7[2, 2], 4, MidpointRounding.AwayFromZero);
+                double result8 = Math.Round(firstPosition * K8[0, 0] + secondPosition * K8[0, 1] + thirdPosition * K8[0, 2] + fourthPosition * K8[1, 0] + fifthPosition * K8[1, 1] + sixthPosition * K8[1, 2] + seventhPosition * K8[2, 0] + eighthPosition * K8[2, 1] + ninethPosition * K8[2, 2], 4, MidpointRounding.AwayFromZero);
 
                 matrixK1[i, j] = result1;
                 matrixK2[i, j] = result2;
@@ -1159,7 +1159,7 @@ class ThuatToan
         {
             for (int j = 0; j < 5; j++)
             {
-                System.Console.Write(Math.Round((matrixResult[i, j] * 255),MidpointRounding.AwayFromZero) + "\t");
+                System.Console.Write(Math.Round((matrixResult[i, j] * 255), MidpointRounding.AwayFromZero) + "\t");
             }
             System.Console.WriteLine();
         }
@@ -1177,5 +1177,122 @@ class ThuatToan
         }
         System.Console.WriteLine();
     }
+
+    public void Laplacian(double[,] maTran)
+    {
+        Console.WriteLine("----------Laplacian-----------");
+        System.Console.WriteLine("Nhập ma trận mặt nạ 3x3: ");
+        double[,] B = new double[3, 3];
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Console.WriteLine($"Điểm ({i},{j}): ");
+                var x = Console.ReadLine();
+                B[i, j] = Convert.ToDouble(x);
+            }
+            Console.WriteLine();
+        }
+        System.Console.WriteLine("----------Kết quả----------");
+
+        double[,] matrixResult = new double[5, 5];
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                double firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition;
+
+                try
+                {
+                    firstPosition = (maTran[i - 1, j - 1] != 0) ? maTran[i - 1, j - 1] : 0;
+                }
+                catch
+                {
+                    firstPosition = 0;
+                }
+                try
+                {
+                    secondPosition = (maTran[i - 1, j] != 0) ? maTran[i - 1, j] : 0;
+                }
+                catch
+                {
+                    secondPosition = 0;
+                }
+                try
+                {
+                    thirdPosition = (maTran[i - 1, j + 1] != 0) ? maTran[i - 1, j + 1] : 0;
+                }
+                catch
+                {
+                    thirdPosition = 0;
+                }
+                try
+                {
+                    fourthPosition = (maTran[i, j - 1] != 0) ? maTran[i, j - 1] : 0;
+                }
+                catch
+                {
+                    fourthPosition = 0;
+                }
+                try
+                {
+                    fifthPosition = (maTran[i, j] != 0) ? maTran[i, j] : 0;
+                }
+                catch
+                {
+                    fifthPosition = 0;
+                }
+                try
+                {
+                    sixthPosition = (maTran[i, j + 1] != 0) ? maTran[i, j + 1] : 0;
+                }
+                catch
+                {
+                    sixthPosition = 0;
+                }
+                try
+                {
+                    seventhPosition = (maTran[i + 1, j - 1] != 0) ? maTran[i + 1, j - 1] : 0;
+                }
+                catch
+                {
+                    seventhPosition = 0;
+                }
+                try
+                {
+                    eighthPosition = (maTran[i + 1, j] != 0) ? maTran[i + 1, j] : 0;
+                }
+                catch
+                {
+                    eighthPosition = 0;
+                }
+                try
+                {
+                    ninethPosition = (maTran[i + 1, j + 1] != 0) ? maTran[i + 1, j + 1] : 0;
+                }
+                catch
+                {
+                    ninethPosition = 0;
+                }
+
+                double result = ((firstPosition * B[0, 0]) + (secondPosition * B[0, 1]) + (thirdPosition * B[0, 2]) + (fourthPosition * B[1, 0]) + (fifthPosition * B[1, 1]) + (sixthPosition * B[1, 2]) + (seventhPosition * B[2, 0]) + (eighthPosition * B[2, 1]) + (ninethPosition * B[2, 2]));
+                matrixResult[i, j] = Math.Round(result, MidpointRounding.AwayFromZero);
+                System.Console.WriteLine($"G({i},{j})=({firstPosition}*{B[0, 0]})+({secondPosition}*{B[0, 1]})+({thirdPosition}*{B[0, 2]})+({fourthPosition}*{B[1, 0]})+({fifthPosition}*{B[1, 1]})+({sixthPosition}*{B[1, 2]})+({seventhPosition}*{B[2, 0]})+({eighthPosition}*{B[2, 1]})+({ninethPosition}*{B[2, 2]})={Math.Round(result, 5, MidpointRounding.AwayFromZero)}={Math.Round(result, MidpointRounding.AwayFromZero)}");
+                System.Console.WriteLine();
+            }
+        }
+        System.Console.WriteLine();
+
+        System.Console.WriteLine("----------Ma trận hoàn chỉnh-------------");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(matrixResult[i, j] + "\t");
+            }
+            System.Console.WriteLine();
+        }
+    }
+
 
 }
