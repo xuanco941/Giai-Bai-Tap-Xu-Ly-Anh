@@ -28,6 +28,7 @@ Console.WriteLine("Chọn loại thuật toán muốn giải: ");
 System.Console.WriteLine("1.Sobel và Prewitt");
 System.Console.WriteLine("2.Alpha");
 System.Console.WriteLine("3.Lọc nhị thức");
+System.Console.WriteLine("4.Lọc nhiễu Min");
 System.Console.WriteLine("----------------------------------------------------");
 
 ThuatToan thuattoan = new ThuatToan();
@@ -43,5 +44,8 @@ switch (number)
         break;
     case 3:
         thuattoan.LocNhiThuc(maTran);
+        break;
+    case 4:
+        thuattoan.LocNhieuMin(maTran);
         break;
 }

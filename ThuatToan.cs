@@ -452,4 +452,118 @@ class ThuatToan
         }
     }
 
+
+    public void LocNhieuMin(double[,] maTran)
+    {
+        System.Console.WriteLine("----------Lọc Nhiễu Min--------------");
+        System.Console.WriteLine("----------Kết quả----------");
+
+        double[,] matrixResult = new double[5, 5];
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                double firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition;
+
+                try
+                {
+                    firstPosition = (maTran[i - 1, j - 1] != 0) ? maTran[i - 1, j - 1] : 0;
+                }
+                catch
+                {
+                    firstPosition = 0;
+                }
+                try
+                {
+                    secondPosition = (maTran[i - 1, j] != 0) ? maTran[i - 1, j] : 0;
+                }
+                catch
+                {
+                    secondPosition = 0;
+                }
+                try
+                {
+                    thirdPosition = (maTran[i - 1, j + 1] != 0) ? maTran[i - 1, j + 1] : 0;
+                }
+                catch
+                {
+                    thirdPosition = 0;
+                }
+                try
+                {
+                    fourthPosition = (maTran[i, j - 1] != 0) ? maTran[i, j - 1] : 0;
+                }
+                catch
+                {
+                    fourthPosition = 0;
+                }
+                try
+                {
+                    fifthPosition = (maTran[i, j] != 0) ? maTran[i, j] : 0;
+                }
+                catch
+                {
+                    fifthPosition = 0;
+                }
+                try
+                {
+                    sixthPosition = (maTran[i, j + 1] != 0) ? maTran[i, j + 1] : 0;
+                }
+                catch
+                {
+                    sixthPosition = 0;
+                }
+                try
+                {
+                    seventhPosition = (maTran[i + 1, j - 1] != 0) ? maTran[i + 1, j - 1] : 0;
+                }
+                catch
+                {
+                    seventhPosition = 0;
+                }
+                try
+                {
+                    eighthPosition = (maTran[i + 1, j] != 0) ? maTran[i + 1, j] : 0;
+                }
+                catch
+                {
+                    eighthPosition = 0;
+                }
+                try
+                {
+                    ninethPosition = (maTran[i + 1, j + 1] != 0) ? maTran[i + 1, j + 1] : 0;
+                }
+                catch
+                {
+                    ninethPosition = 0;
+                }
+
+                double[] result = { firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition };
+                System.Console.WriteLine($"Điểm({i},{j}): ");
+                for (int item = 0; item < result.Length; item++)
+                {
+                    System.Console.Write($"{result[item]}   ");
+                    if((item+1)==3 || (item+1)==6){
+                        System.Console.WriteLine();
+                    }
+                }
+                System.Console.WriteLine();
+                System.Console.WriteLine($"Giá trị nhỏ nhất là: {result.Min()}");
+                matrixResult[i, j] = result.Min();
+                System.Console.WriteLine();
+            }
+
+        }
+        System.Console.WriteLine();
+
+        System.Console.WriteLine("----------Ma trận hoàn chỉnh-------------");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(matrixResult[i, j] + "\t");
+            }
+            System.Console.WriteLine();
+        }
+    }
 }
