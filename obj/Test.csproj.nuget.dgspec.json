@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkPlace\\C-Sharp\\Test\\Test.csproj": {}
+    "D:\\WorkPlace\\C-Sharp\\Tool_GiaiBaiTapXuLyAnh\\Test.csproj": {}
   },
   "projects": {
-    "D:\\WorkPlace\\C-Sharp\\Test\\Test.csproj": {
+    "D:\\WorkPlace\\C-Sharp\\Tool_GiaiBaiTapXuLyAnh\\Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkPlace\\C-Sharp\\Test\\Test.csproj",
+        "projectUniqueName": "D:\\WorkPlace\\C-Sharp\\Tool_GiaiBaiTapXuLyAnh\\Test.csproj",
         "projectName": "Test",
-        "projectPath": "D:\\WorkPlace\\C-Sharp\\Test\\Test.csproj",
+        "projectPath": "D:\\WorkPlace\\C-Sharp\\Tool_GiaiBaiTapXuLyAnh\\Test.csproj",
         "packagesPath": "C:\\Users\\xuanc\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkPlace\\C-Sharp\\Test\\obj\\",
+        "outputPath": "D:\\WorkPlace\\C-Sharp\\Tool_GiaiBaiTapXuLyAnh\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\xuanc\\AppData\\Roaming\\NuGet\\NuGet.Config",

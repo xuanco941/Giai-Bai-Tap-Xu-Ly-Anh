@@ -308,10 +308,6 @@ class ThuatToan
                 double newResult = Math.Round(result / (3 * 3 - d), MidpointRounding.AwayFromZero);
                 matrixResult[i, j] = newResult;
                 Array.Sort(arrMatrixSmall);
-                foreach (double item in arrMatrixSmall)
-                {
-                    System.Console.Write(item + "   ");
-                }
                 System.Console.WriteLine();
                 System.Console.WriteLine($"I({i},{j})=({stringResult})/(3*3-{d})={Math.Round(result / (3 * 3 - d), 4)}={newResult}");
                 System.Console.WriteLine();
