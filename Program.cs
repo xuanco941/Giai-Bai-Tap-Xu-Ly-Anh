@@ -1,6 +1,7 @@
 ﻿using System;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
+System.Console.WriteLine();
 System.Console.WriteLine("CODE BY ĐỖ VĂN XUÂN - 61PM2");
 System.Console.WriteLine();
 Console.WriteLine("Áp Dụng Cho Ma Trận 5x5 Nhé!!! Hãy nhập tất cả bằng số !!!!");

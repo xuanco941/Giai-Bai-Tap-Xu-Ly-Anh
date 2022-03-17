@@ -7,7 +7,7 @@ Hiện có: Sobel và Prewitt, Alpha, Lọc nhị thức, Lọc nhiễu Min, L�
 
 --B1: TẢI VỀ VÀ GIẢI NÉN
 
---B2: MỞ COMMAND LINE hoặc POWERSHELL LÊN
+--B2: MỞ COMMAND PROMPT hoặc POWERSHELL LÊN
 
 --B3: DI CHUYỂN ĐẾN MỤC VỪA GIẢI NÉN BẰNG LỆNH "cd"
 
