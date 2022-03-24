@@ -1,3 +1,4 @@
+using System.Collections;
 class ThuatToan
 {
     public void SobelAndPrewitt(double[,] maTran)
@@ -431,7 +432,7 @@ class ThuatToan
 
                 double result = ((firstPosition * B[0, 0]) + (secondPosition * B[0, 1]) + (thirdPosition * B[0, 2]) + (fourthPosition * B[1, 0]) + (fifthPosition * B[1, 1]) + (sixthPosition * B[1, 2]) + (seventhPosition * B[2, 0]) + (eighthPosition * B[2, 1]) + (ninethPosition * B[2, 2])) / K_b;
                 matrixResult[i, j] = Math.Round(result, MidpointRounding.AwayFromZero);
-                System.Console.WriteLine($"I({i},{j})=(({firstPosition}*{B[0, 0]})+({secondPosition}*{B[0, 1]})+({thirdPosition}*{B[0, 2]})+({fourthPosition}*{B[1, 0]})+({fifthPosition}*{B[1, 1]})+({sixthPosition}*{B[1, 2]})+({seventhPosition}*{B[2, 0]})+({eighthPosition}*{B[2, 1]})+({ninethPosition}*{B[2, 2]}))/16={Math.Round(result, 5)}={Math.Round(result,MidpointRounding.AwayFromZero)}");
+                System.Console.WriteLine($"I({i},{j})=(({firstPosition}*{B[0, 0]})+({secondPosition}*{B[0, 1]})+({thirdPosition}*{B[0, 2]})+({fourthPosition}*{B[1, 0]})+({fifthPosition}*{B[1, 1]})+({sixthPosition}*{B[1, 2]})+({seventhPosition}*{B[2, 0]})+({eighthPosition}*{B[2, 1]})+({ninethPosition}*{B[2, 2]}))/16={Math.Round(result, 5)}={Math.Round(result, MidpointRounding.AwayFromZero)}");
                 System.Console.WriteLine();
             }
         }
@@ -1290,5 +1291,89 @@ class ThuatToan
         }
     }
 
+    public void LZW(double[,] maTran)
+    {
+        Console.WriteLine("----------LZW-----------");
+        double[] arrMucXamBanDau = new double[25];
+        int z = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                arrMucXamBanDau[z] = maTran[i, j];
+                z += 1;
+            }
+        }
+        System.Console.WriteLine("Chuỗi mức xám của ảnh ban đầu: ");
+        foreach (var item in arrMucXamBanDau)
+        {
+            System.Console.Write(item + "  ");
+        }
+        System.Console.WriteLine();
+        System.Console.WriteLine();
+        System.Console.WriteLine("Xây dựng từ điển: ");
+        System.Console.WriteLine();
+        System.Console.Write("STT\tDãy hiện tại\tPixel kế tiếp\tTừ điển từ\tTừ điển mã\tĐầu ra");
+        System.Console.WriteLine();
+        System.Console.Write($"1\tNull\t\t{arrMucXamBanDau[0]}");
+        System.Console.WriteLine();
+        double[] arrMucXamSauKhiNen = new double[100];
+        int countTuDienMa = 257;
+        string[] arrDauRa = new string[25];
+        for (int i = 0; i < arrMucXamBanDau.Length; i++)
+        {
+            int STT = i + 1;
+            string DayHienTai = arrMucXamBanDau[i].ToString();
+            string PixelKeTiep = "";
+            string TuDienTu = "";
+            string TuDienMa = "";
+            string DauRa = "";
+            Dictionary<string, string> dic = new Dictionary<string, string>();
 
+            if (i == arrMucXamBanDau.Length - 1)
+            {
+                PixelKeTiep = @"#";
+                TuDienTu = @"#";
+                DayHienTai = @"#";
+                TuDienMa = @"#";
+            }
+            else
+            {
+
+                PixelKeTiep = arrMucXamBanDau[i + 1].ToString();
+
+                if (arrDauRa[arrDauRa.Length - 1] == "Null")
+                {
+                    string[] listKeys = dic.Keys.ToArray();
+                    DayHienTai = dic[listKeys[listKeys.Length-1]];
+                    TuDienTu = DayHienTai + "-" + PixelKeTiep;
+                }
+                else
+                {
+                    TuDienTu = DayHienTai + "-" + PixelKeTiep;
+                }
+                if (dic.ContainsKey(TuDienTu))
+                {
+                    TuDienMa = "đã có " + dic[TuDienTu];
+                    DauRa = "Null";
+                    arrDauRa[i] = "Null";
+                }
+                else
+                {
+                    DauRa = DayHienTai;
+                    arrDauRa[i] = DayHienTai;
+                    countTuDienMa+=1;
+                    TuDienMa = countTuDienMa.ToString();
+                }
+
+            }
+
+
+
+            System.Console.Write($"{STT}\t{DayHienTai}\t\t{PixelKeTiep}\t\t{TuDienTu}\t\t{TuDienMa}\t\t{DauRa}");
+            System.Console.WriteLine();
+
+        }
+
+    }
 }

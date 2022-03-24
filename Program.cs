@@ -6,7 +6,7 @@ System.Console.WriteLine("CODE BY ĐỖ VĂN XUÂN - 61PM2");
 System.Console.WriteLine();
 Console.WriteLine("Áp Dụng Cho Ma Trận 5x5 Nhé!!! Hãy nhập tất cả bằng số !!!!");
 System.Console.WriteLine("Hiện có: Sobel và Prewitt, Alpha, Lọc nhị thức, Lọc nhiễu Min, Lọc nhiễu Max, Lọc nhiễu trung điểm, ");
-System.Console.WriteLine("Lọc nhiễu trung bình hình học, Dò biên Kirsch, Laplacian");
+System.Console.WriteLine("Lọc nhiễu trung bình hình học, Dò biên Kirsch, Laplacian, nén ảnh LZW");
 System.Console.WriteLine();
 double[,] maTran = new double[5, 5];
 Console.WriteLine("Nhập ma trận 5x5 đầu vào: ");
@@ -41,6 +41,7 @@ System.Console.WriteLine("6.Lọc nhiễu trung điểm");
 System.Console.WriteLine("7.Lọc nhiễu trung bình hình học");
 System.Console.WriteLine("8.Dò biên Kirsch");
 System.Console.WriteLine("9.Sử dụng toán tử Laplacian");
+System.Console.WriteLine("10.Nén ảnh LZW");
 System.Console.WriteLine("----------------------------------------------------");
 
 ThuatToan thuattoan = new ThuatToan();
@@ -74,5 +75,8 @@ switch (number)
         break;
     case 9:
         thuattoan.Laplacian(maTran);
+        break;
+    case 10:
+        thuattoan.LZW(maTran);
         break;
 }
