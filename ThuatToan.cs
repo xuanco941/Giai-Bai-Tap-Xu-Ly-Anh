@@ -1,4 +1,5 @@
-using System.Collections;
+using System;
+using System.Collections.Generic;
 class ThuatToan
 {
     public void SobelAndPrewitt(double[,] maTran)
@@ -1317,63 +1318,82 @@ class ThuatToan
         System.Console.WriteLine();
         System.Console.Write($"1\tNull\t\t{arrMucXamBanDau[0]}");
         System.Console.WriteLine();
-        double[] arrMucXamSauKhiNen = new double[100];
+        string[] arrMucXamSauKhiNen = new string[100];
         int countTuDienMa = 257;
         string[] arrDauRa = new string[25];
+        Stack<string> stack = new Stack<string>();
+        Dictionary<string, string> dic = new Dictionary<string, string>();
         for (int i = 0; i < arrMucXamBanDau.Length; i++)
         {
-            int STT = i + 1;
+            int STT = i + 2;
             string DayHienTai = arrMucXamBanDau[i].ToString();
             string PixelKeTiep = "";
             string TuDienTu = "";
             string TuDienMa = "";
             string DauRa = "";
-            Dictionary<string, string> dic = new Dictionary<string, string>();
 
             if (i == arrMucXamBanDau.Length - 1)
             {
                 PixelKeTiep = @"#";
                 TuDienTu = @"#";
-                DayHienTai = @"#";
                 TuDienMa = @"#";
+                DauRa = DayHienTai;
             }
             else
             {
-
                 PixelKeTiep = arrMucXamBanDau[i + 1].ToString();
-
-                if (arrDauRa[arrDauRa.Length - 1] == "Null")
+                if (stack.Count!=0 && stack.Peek() == "Null")
                 {
-                    string[] listKeys = dic.Keys.ToArray();
-                    DayHienTai = dic[listKeys[listKeys.Length-1]];
+                    ICollection<string> listKey = dic.Keys;
+                    string[] listKeys = listKey.ToArray();
+                    string str = listKeys[listKeys.Length - 1].ToString();
+                    DayHienTai = str.Substring(0, str.Length - 1);
                     TuDienTu = DayHienTai + "-" + PixelKeTiep;
-                }
-                else
-                {
-                    TuDienTu = DayHienTai + "-" + PixelKeTiep;
-                }
-                if (dic.ContainsKey(TuDienTu))
-                {
-                    TuDienMa = "đã có " + dic[TuDienTu];
-                    DauRa = "Null";
-                    arrDauRa[i] = "Null";
-                }
-                else
-                {
-                    DauRa = DayHienTai;
-                    arrDauRa[i] = DayHienTai;
-                    countTuDienMa+=1;
+                    countTuDienMa += 1;
                     TuDienMa = countTuDienMa.ToString();
+                    DauRa = dic[DayHienTai];
+                    stack.Push((countTuDienMa - 1).ToString());
                 }
+                else
+                {
+                    TuDienTu = DayHienTai + "-" + PixelKeTiep;
+                    if (dic.ContainsKey(TuDienTu))
+                    {
+                        TuDienMa = "đã có " + dic[TuDienTu];
+                        DauRa = "Null";
+                        stack.Push("Null");
+                        TuDienTu = TuDienTu + @"*";
+                    }
+                    else
+                    {
+                        DauRa = DayHienTai;
+                        stack.Push(DayHienTai);
+                        countTuDienMa += 1;
+                        TuDienMa = countTuDienMa.ToString();
+                    }
+                }
+
+
 
             }
-
-
-
+            dic.Add(TuDienTu, TuDienMa);
+            arrMucXamSauKhiNen[i] = DauRa;
             System.Console.Write($"{STT}\t{DayHienTai}\t\t{PixelKeTiep}\t\t{TuDienTu}\t\t{TuDienMa}\t\t{DauRa}");
             System.Console.WriteLine();
 
         }
+
+        System.Console.WriteLine();
+        System.Console.WriteLine("Day nen thu duoc: ");
+        foreach (var item in arrMucXamSauKhiNen)
+        {
+            System.Console.Write(item+" ");
+        }
+        System.Console.WriteLine("Cong thuc :");
+        System.Console.WriteLine("Dung luong truoc khi nen: n1 = 8*5*5 = 200 bit");
+        System.Console.WriteLine("Dung luong sau khi nen: n2 = soPhanTuCoOn1*8 , soPhanTuPhatSinh*9");
+        System.Console.WriteLine("Ti So nen: Cr=n1/n2");
+        System.Console.WriteLine("Do du thua: Dr=1-1/Cr  (*100%)");
 
     }
 }
