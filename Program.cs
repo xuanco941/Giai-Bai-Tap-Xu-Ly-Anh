@@ -32,51 +32,78 @@ for (int i = 0; i < 5; i++)
 }
 System.Console.WriteLine();
 Console.WriteLine("Chọn loại thuật toán muốn giải: ");
-System.Console.WriteLine("1.Sobel và Prewitt");
-System.Console.WriteLine("2.Alpha");
-System.Console.WriteLine("3.Lọc nhị thức");
-System.Console.WriteLine("4.Lọc nhiễu Min");
-System.Console.WriteLine("5.Lọc nhiễu Max");
-System.Console.WriteLine("6.Lọc nhiễu trung điểm");
-System.Console.WriteLine("7.Lọc nhiễu trung bình hình học");
-System.Console.WriteLine("8.Dò biên Kirsch");
-System.Console.WriteLine("9.Sử dụng toán tử Laplacian");
-System.Console.WriteLine("10.Nén ảnh LZW");
-System.Console.WriteLine("----------------------------------------------------");
-
-ThuatToan thuattoan = new ThuatToan();
-int number = Convert.ToInt32(Console.ReadLine());
-
-switch (number)
+void writeSomthing()
 {
-    case 1:
-        thuattoan.SobelAndPrewitt(maTran);
-        break;
-    case 2:
-        thuattoan.Alpha(maTran);
-        break;
-    case 3:
-        thuattoan.LocNhiThuc(maTran);
-        break;
-    case 4:
-        thuattoan.LocNhieuMin(maTran);
-        break;
-    case 5:
-        thuattoan.LocNhieuMax(maTran);
-        break;
-    case 6:
-        thuattoan.LocNhieuTrungDiem(maTran);
-        break;
-    case 7:
-        thuattoan.LocNhieuTrungBinhHinhHoc(maTran);
-        break;
-    case 8:
-        thuattoan.DoBienKirsch(maTran);
-        break;
-    case 9:
-        thuattoan.Laplacian(maTran);
-        break;
-    case 10:
-        thuattoan.LZW(maTran);
-        break;
+    System.Console.WriteLine("1.Sobel và Prewitt");
+    System.Console.WriteLine("2.Alpha");
+    System.Console.WriteLine("3.Lọc nhị thức");
+    System.Console.WriteLine("4.Lọc nhiễu Min");
+    System.Console.WriteLine("5.Lọc nhiễu Max");
+    System.Console.WriteLine("6.Lọc nhiễu trung điểm");
+    System.Console.WriteLine("7.Lọc nhiễu trung bình hình học");
+    System.Console.WriteLine("8.Dò biên Kirsch");
+    System.Console.WriteLine("9.Sử dụng toán tử Laplacian");
+    System.Console.WriteLine("10.Nén ảnh LZW (Đúng cho đến khi gặp chập 3 liên tiếp thì lỗi @@)");
+    System.Console.WriteLine("----------------------------------------------------");
 }
+
+for (int i = 0; i < 10; i++)
+{
+    if (i == 0)
+    {
+        writeSomthing();
+        System.Console.Write("Thuật toán bạn chọn là: ");
+    }
+    else
+    {
+        System.Console.WriteLine();
+        System.Console.WriteLine();
+        writeSomthing();
+        System.Console.Write("Thuật toán bạn chọn tiếp theo là: ");
+    }
+    ThuatToan thuattoan = new ThuatToan();
+    int number = Convert.ToInt32(Console.ReadLine());
+
+    switch (number)
+    {
+        case 1:
+            thuattoan.SobelAndPrewitt(maTran);
+            break;
+        case 2:
+            thuattoan.Alpha(maTran);
+            break;
+        case 3:
+            thuattoan.LocNhiThuc(maTran);
+            break;
+        case 4:
+            thuattoan.LocNhieuMin(maTran);
+            break;
+        case 5:
+            thuattoan.LocNhieuMax(maTran);
+            break;
+        case 6:
+            thuattoan.LocNhieuTrungDiem(maTran);
+            break;
+        case 7:
+            thuattoan.LocNhieuTrungBinhHinhHoc(maTran);
+            break;
+        case 8:
+            thuattoan.DoBienKirsch(maTran);
+            break;
+        case 9:
+            thuattoan.Laplacian(maTran);
+            break;
+        case 10:
+            thuattoan.LZW(maTran);
+            break;
+    }
+    System.Console.WriteLine();
+    System.Console.WriteLine();
+    System.Console.WriteLine("Bạn muốn giải tiếp không?");
+    System.Console.WriteLine("1.Có       2.Không");
+    int next = Convert.ToInt32(Console.ReadLine());
+    if(next == 2){
+        break;
+    }
+}
+
