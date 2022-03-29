@@ -1485,8 +1485,30 @@ class ThuatToan
 
 
         //Sk
+        System.Console.WriteLine();
+        System.Console.WriteLine();
+        System.Console.WriteLine("Tinh Sk theo cong thuc: ((cdf(nk)-cdf(min))*(L-1)/(M*N)-cdf(min))");
+        System.Console.WriteLine();
+        ArrayList sk = new ArrayList();
+        double[] cloneCDF = (double[])cdf.ToArray(typeof(double));
+        double minCDF = cloneCDF.Min();
+        for (int i = 0; i < cloneCDF.Length; i++)
+        {
 
-        
+            double s = ((cloneCDF[i] - minCDF) * (mucxam - 1)) / ((5 * 5) - minCDF);
+            double s2 = Math.Round(s, 4, MidpointRounding.AwayFromZero);
+            System.Console.WriteLine($"s{i}: (({cloneCDF[i]}-{minCDF})*({mucxam}-{1})/(5*5-{minCDF}) = {s2} = {Math.Round(s, MidpointRounding.AwayFromZero)}");
+            sk.Add(Math.Round(s, MidpointRounding.AwayFromZero));
+        }
+        System.Console.WriteLine();
+        System.Console.Write("Sk:\t");
+        for (int i = 0; i < sk.Count; i++)
+        {
+            System.Console.Write(sk[i] + "\t");
+        }
+
+
+
     }
 
 
