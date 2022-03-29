@@ -1511,7 +1511,124 @@ class ThuatToan
 
     }
 
+public void LocTrungBinh(double[,] maTran)
 
+    {   
+        System.Console.WriteLine("Nhập mẫu số của K: ");
+        double k = Convert.ToDouble(Console.ReadLine());
+        System.Console.WriteLine("----------Lọc Trung bình--------------");
+        System.Console.WriteLine("----------Kết quả----------");
+
+        double[,] matrixResult = new double[5, 5];
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                double firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition;
+
+                try
+                {
+                    firstPosition = (maTran[i - 1, j - 1] != 0) ? maTran[i - 1, j - 1] : 0;
+                }
+                catch
+                {
+                    firstPosition = 0;
+                }
+                try
+                {
+                    secondPosition = (maTran[i - 1, j] != 0) ? maTran[i - 1, j] : 0;
+                }
+                catch
+                {
+                    secondPosition = 0;
+                }
+                try
+                {
+                    thirdPosition = (maTran[i - 1, j + 1] != 0) ? maTran[i - 1, j + 1] : 0;
+                }
+                catch
+                {
+                    thirdPosition = 0;
+                }
+                try
+                {
+                    fourthPosition = (maTran[i, j - 1] != 0) ? maTran[i, j - 1] : 0;
+                }
+                catch
+                {
+                    fourthPosition = 0;
+                }
+                try
+                {
+                    fifthPosition = (maTran[i, j] != 0) ? maTran[i, j] : 0;
+                }
+                catch
+                {
+                    fifthPosition = 0;
+                }
+                try
+                {
+                    sixthPosition = (maTran[i, j + 1] != 0) ? maTran[i, j + 1] : 0;
+                }
+                catch
+                {
+                    sixthPosition = 0;
+                }
+                try
+                {
+                    seventhPosition = (maTran[i + 1, j - 1] != 0) ? maTran[i + 1, j - 1] : 0;
+                }
+                catch
+                {
+                    seventhPosition = 0;
+                }
+                try
+                {
+                    eighthPosition = (maTran[i + 1, j] != 0) ? maTran[i + 1, j] : 0;
+                }
+                catch
+                {
+                    eighthPosition = 0;
+                }
+                try
+                {
+                    ninethPosition = (maTran[i + 1, j + 1] != 0) ? maTran[i + 1, j + 1] : 0;
+                }
+                catch
+                {
+                    ninethPosition = 0;
+                }
+
+                // double[] result = { firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition };
+                // System.Console.WriteLine($"Điểm({i},{j}): ");
+                // for (int item = 0; item < result.Length; item++)
+                // {
+                //     System.Console.Write($"{result[item]}   ");
+                //     if ((item + 1) == 3 || (item + 1) == 6)
+                //     {
+                //         System.Console.WriteLine();
+                //     }
+                // }
+                System.Console.WriteLine();
+                double TongCacDiem = (firstPosition + secondPosition + thirdPosition + fourthPosition + fifthPosition + sixthPosition + seventhPosition + eighthPosition + ninethPosition)/k;
+                System.Console.WriteLine($"Itb({i},{j}): 1/{k}*({firstPosition}+{secondPosition}+{thirdPosition}+{fourthPosition}+{fifthPosition}+{sixthPosition}+{seventhPosition}+{eighthPosition}+{ninethPosition}) = {Math.Round(TongCacDiem,4,MidpointRounding.AwayFromZero)} = {Math.Round(TongCacDiem,MidpointRounding.AwayFromZero)}");
+
+                matrixResult[i,j] = Math.Round(TongCacDiem,MidpointRounding.AwayFromZero);
+                System.Console.WriteLine();
+            }
+        }
+        System.Console.WriteLine();
+
+        System.Console.WriteLine("----------Ma trận sau khi lọc trung bình-------------");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(matrixResult[i, j] + "\t");
+            }
+            System.Console.WriteLine();
+        }
+    }
 
 
 

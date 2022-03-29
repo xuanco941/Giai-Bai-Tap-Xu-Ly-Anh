@@ -45,6 +45,7 @@ void writeSomthing()
     System.Console.WriteLine("9.Sử dụng toán tử Laplacian");
     System.Console.WriteLine("10.Nén ảnh LZW (Đúng cho đến khi gặp chập 3 liên tiếp thì lỗi @@)");
     System.Console.WriteLine("11.Cân bằng Histogram");
+    System.Console.WriteLine("12.Lọc trung bình");
     System.Console.WriteLine("----------------------------------------------------");
 }
 
@@ -99,6 +100,9 @@ for (int i = 0; i < 10; i++)
             break;
         case 11:
             thuattoan.CanBangHistogram(maTran);
+            break;
+        case 12:
+            thuattoan.LocTrungBinh(maTran);
             break;
     }
     System.Console.WriteLine();
