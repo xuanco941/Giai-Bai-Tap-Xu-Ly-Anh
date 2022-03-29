@@ -44,6 +44,7 @@ void writeSomthing()
     System.Console.WriteLine("8.Dò biên Kirsch");
     System.Console.WriteLine("9.Sử dụng toán tử Laplacian");
     System.Console.WriteLine("10.Nén ảnh LZW (Đúng cho đến khi gặp chập 3 liên tiếp thì lỗi @@)");
+    System.Console.WriteLine("11.Cân bằng Histogram");
     System.Console.WriteLine("----------------------------------------------------");
 }
 
@@ -96,13 +97,17 @@ for (int i = 0; i < 10; i++)
         case 10:
             thuattoan.LZW(maTran);
             break;
+        case 11:
+            thuattoan.CanBangHistogram(maTran);
+            break;
     }
     System.Console.WriteLine();
     System.Console.WriteLine();
     System.Console.WriteLine("Bạn muốn giải tiếp không?");
     System.Console.WriteLine("1.Có       2.Không");
     int next = Convert.ToInt32(Console.ReadLine());
-    if(next == 2){
+    if (next == 2)
+    {
         break;
     }
 }

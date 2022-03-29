@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 class ThuatToan
 {
     public void SobelAndPrewitt(double[,] maTran)
@@ -1342,7 +1343,7 @@ class ThuatToan
             else
             {
                 PixelKeTiep = arrMucXamBanDau[i + 1].ToString();
-                if (stack.Count!=0 && stack.Peek() == "Null")
+                if (stack.Count != 0 && stack.Peek() == "Null")
                 {
                     ICollection<string> listKey = dic.Keys;
                     string[] listKeys = listKey.ToArray();
@@ -1387,7 +1388,7 @@ class ThuatToan
         System.Console.WriteLine("Day nen thu duoc: ");
         foreach (var item in arrMucXamSauKhiNen)
         {
-            System.Console.Write(item+" ");
+            System.Console.Write(item + " ");
         }
         System.Console.WriteLine("Cong thuc :");
         System.Console.WriteLine("Dung luong truoc khi nen: n1 = 8*5*5 = 200 bit");
@@ -1396,4 +1397,79 @@ class ThuatToan
         System.Console.WriteLine("Do du thua: Dr=1-1/Cr  (*100%)");
 
     }
+
+    public void CanBangHistogram(double[,] maTran)
+    {
+        System.Console.WriteLine("------------Histogram------------");
+        ArrayList rk = new ArrayList();
+
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if (rk.Count != 0)
+                {
+                    if (rk.Contains(maTran[i, j]) == false)
+                    {
+                        rk.Add(maTran[i, j]);
+                    }
+                }
+                else
+                {
+                    rk.Add(maTran[i, j]);
+                }
+            }
+        }
+        rk.Sort();
+        System.Console.WriteLine("Rk:");
+        for (int i = 0; i < rk.Count; i++)
+        {
+            System.Console.Write(rk[i] + "\t");
+        }
+
+
+        //NK
+        ArrayList nk = new ArrayList();
+        double[] cloneRK = (double[])rk.ToArray(typeof(double));
+
+
+        for (int k = 0; k < cloneRK.Length; k++)
+        {
+            double count = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    if (maTran[i, j] == cloneRK[k])
+                    {
+                        count=count+1;
+                    }
+                }
+            }
+            nk.Add(count);
+        }
+        System.Console.WriteLine();
+        System.Console.WriteLine("Nk:");
+        for (int i = 0; i < nk.Count; i++)
+        {
+            System.Console.Write(nk[i] + "\t");
+        }
+
+
+        //CDF
+        ArrayList cdf = new ArrayList();
+        double[] cloneNK = (double[])nk.ToArray(typeof(double));
+        for (int i = 0; i < cloneNK.Length; i++)
+        {
+            double sum = cloneNK[i];
+            if(i!=0){
+                
+            }
+        }
+    }
+
+
+
+
+
 }
