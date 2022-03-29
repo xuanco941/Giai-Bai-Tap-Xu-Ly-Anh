@@ -1400,6 +1400,9 @@ class ThuatToan
 
     public void CanBangHistogram(double[,] maTran)
     {
+        System.Console.Write("Mức xám là: ");
+        double mucxam = Convert.ToDouble(Console.ReadLine());
+        System.Console.WriteLine();
         System.Console.WriteLine("------------Histogram------------");
         ArrayList rk = new ArrayList();
 
@@ -1421,7 +1424,7 @@ class ThuatToan
             }
         }
         rk.Sort();
-        System.Console.WriteLine("Rk:");
+        System.Console.Write("Rk:\t");
         for (int i = 0; i < rk.Count; i++)
         {
             System.Console.Write(rk[i] + "\t");
@@ -1442,14 +1445,14 @@ class ThuatToan
                 {
                     if (maTran[i, j] == cloneRK[k])
                     {
-                        count=count+1;
+                        count = count + 1;
                     }
                 }
             }
             nk.Add(count);
         }
         System.Console.WriteLine();
-        System.Console.WriteLine("Nk:");
+        System.Console.Write("Nk:\t");
         for (int i = 0; i < nk.Count; i++)
         {
             System.Console.Write(nk[i] + "\t");
@@ -1459,13 +1462,31 @@ class ThuatToan
         //CDF
         ArrayList cdf = new ArrayList();
         double[] cloneNK = (double[])nk.ToArray(typeof(double));
+        double x = 0;
+        double y = 0;
         for (int i = 0; i < cloneNK.Length; i++)
         {
-            double sum = cloneNK[i];
-            if(i!=0){
-                
+            x = cloneNK[i];
+            if (i != 0)
+            {
+                x = x + y;
             }
+            cdf.Add(x);
+            y = x;
         }
+        System.Console.WriteLine();
+        System.Console.Write("CDF:\t");
+        for (int i = 0; i < cdf.Count; i++)
+        {
+            System.Console.Write(cdf[i] + "\t");
+        }
+
+
+
+
+        //Sk
+
+        
     }
 
 
