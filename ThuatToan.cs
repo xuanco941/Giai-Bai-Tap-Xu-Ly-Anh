@@ -101,7 +101,7 @@ class ThuatToan
         {
             for (int j = 0; j < 5; j++)
             {
-                System.Console.Write($"{Math.Abs(Gx[i, j])} \t");
+                System.Console.Write($"{Gx[i, j]} \t");
             }
             System.Console.WriteLine();
 
@@ -175,7 +175,7 @@ class ThuatToan
         {
             for (int j = 0; j < 5; j++)
             {
-                System.Console.Write($"{Math.Abs(Gy[i, j])} \t");
+                System.Console.Write($"{Gy[i, j]} \t");
             }
             System.Console.WriteLine();
 
