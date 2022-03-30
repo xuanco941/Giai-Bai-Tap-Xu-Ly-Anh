@@ -1609,12 +1609,10 @@ public void LocTrungBinh(double[,] maTran)
                 //         System.Console.WriteLine();
                 //     }
                 // }
-                System.Console.WriteLine();
                 double TongCacDiem = (firstPosition + secondPosition + thirdPosition + fourthPosition + fifthPosition + sixthPosition + seventhPosition + eighthPosition + ninethPosition)/k;
                 System.Console.WriteLine($"Itb({i},{j}): 1/{k}*({firstPosition}+{secondPosition}+{thirdPosition}+{fourthPosition}+{fifthPosition}+{sixthPosition}+{seventhPosition}+{eighthPosition}+{ninethPosition}) = {Math.Round(TongCacDiem,4,MidpointRounding.AwayFromZero)} = {Math.Round(TongCacDiem,MidpointRounding.AwayFromZero)}");
 
                 matrixResult[i,j] = Math.Round(TongCacDiem,MidpointRounding.AwayFromZero);
-                System.Console.WriteLine();
             }
         }
         System.Console.WriteLine();
