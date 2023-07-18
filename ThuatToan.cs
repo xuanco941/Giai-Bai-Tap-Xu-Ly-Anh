@@ -1293,111 +1293,6 @@ class ThuatToan
         }
     }
 
-    public void LZW(double[,] maTran)
-    {
-        Console.WriteLine("----------LZW-----------");
-        double[] arrMucXamBanDau = new double[25];
-        int z = 0;
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                arrMucXamBanDau[z] = maTran[i, j];
-                z += 1;
-            }
-        }
-        System.Console.WriteLine("Chuỗi mức xám của ảnh ban đầu: ");
-        foreach (var item in arrMucXamBanDau)
-        {
-            System.Console.Write(item + "  ");
-        }
-        System.Console.WriteLine();
-        System.Console.WriteLine();
-        System.Console.WriteLine("Xây dựng từ điển: ");
-        System.Console.WriteLine();
-        System.Console.Write("STT\tDãy hiện tại\tPixel kế tiếp\tTừ điển từ\tTừ điển mã\tĐầu ra");
-        System.Console.WriteLine();
-        System.Console.Write($"1\tNull\t\t{arrMucXamBanDau[0]}");
-        System.Console.WriteLine();
-        string[] arrMucXamSauKhiNen = new string[100];
-        int countTuDienMa = 257;
-        string[] arrDauRa = new string[25];
-        Stack<string> stack = new Stack<string>();
-        Dictionary<string, string> dic = new Dictionary<string, string>();
-        for (int i = 0; i < arrMucXamBanDau.Length; i++)
-        {
-            int STT = i + 2;
-            string DayHienTai = arrMucXamBanDau[i].ToString();
-            string PixelKeTiep = "";
-            string TuDienTu = "";
-            string TuDienMa = "";
-            string DauRa = "";
-
-            if (i == arrMucXamBanDau.Length - 1)
-            {
-                PixelKeTiep = @"#";
-                TuDienTu = @"#";
-                TuDienMa = @"#";
-                DauRa = DayHienTai;
-            }
-            else
-            {
-                PixelKeTiep = arrMucXamBanDau[i + 1].ToString();
-                if (stack.Count != 0 && stack.Peek() == "Null")
-                {
-                    ICollection<string> listKey = dic.Keys;
-                    string[] listKeys = listKey.ToArray();
-                    string str = listKeys[listKeys.Length - 1].ToString();
-                    DayHienTai = str.Substring(0, str.Length - 1);
-                    TuDienTu = DayHienTai + "-" + PixelKeTiep;
-                    countTuDienMa += 1;
-                    TuDienMa = countTuDienMa.ToString();
-                    DauRa = dic[DayHienTai];
-                    stack.Push((countTuDienMa - 1).ToString());
-                }
-                else
-                {
-                    TuDienTu = DayHienTai + "-" + PixelKeTiep;
-                    if (dic.ContainsKey(TuDienTu))
-                    {
-                        TuDienMa = "đã có " + dic[TuDienTu];
-                        DauRa = "Null";
-                        stack.Push("Null");
-                        TuDienTu = TuDienTu + @"*";
-                    }
-                    else
-                    {
-                        DauRa = DayHienTai;
-                        stack.Push(DayHienTai);
-                        countTuDienMa += 1;
-                        TuDienMa = countTuDienMa.ToString();
-                    }
-                }
-
-
-
-            }
-            dic.Add(TuDienTu, TuDienMa);
-            arrMucXamSauKhiNen[i] = DauRa;
-            System.Console.Write($"{STT}\t{DayHienTai}\t\t{PixelKeTiep}\t\t{TuDienTu}\t\t{TuDienMa}\t\t{DauRa}");
-            System.Console.WriteLine();
-
-        }
-
-        System.Console.WriteLine();
-        System.Console.WriteLine("Day nen thu duoc: ");
-        foreach (var item in arrMucXamSauKhiNen)
-        {
-            System.Console.Write(item + " ");
-        }
-        System.Console.WriteLine("Cong thuc :");
-        System.Console.WriteLine("Dung luong truoc khi nen: n1 = 8*5*5 = 200 bit");
-        System.Console.WriteLine("Dung luong sau khi nen: n2 = soPhanTuCoOn1*8 , soPhanTuPhatSinh*9");
-        System.Console.WriteLine("Ti So nen: Cr=n1/n2");
-        System.Console.WriteLine("Do du thua: Dr=1-1/Cr  (*100%)");
-
-    }
-
     public void CanBangHistogram(double[,] maTran)
     {
         System.Console.Write("Mức xám là: ");
@@ -1511,9 +1406,9 @@ class ThuatToan
 
     }
 
-public void LocTrungBinh(double[,] maTran)
+    public void LocTrungBinh(double[,] maTran)
 
-    {   
+    {
         System.Console.WriteLine("Nhập mẫu số của K: ");
         double k = Convert.ToDouble(Console.ReadLine());
         System.Console.WriteLine("----------Lọc Trung bình--------------");
@@ -1609,10 +1504,10 @@ public void LocTrungBinh(double[,] maTran)
                 //         System.Console.WriteLine();
                 //     }
                 // }
-                double TongCacDiem = (firstPosition + secondPosition + thirdPosition + fourthPosition + fifthPosition + sixthPosition + seventhPosition + eighthPosition + ninethPosition)/k;
-                System.Console.WriteLine($"Itb({i},{j}): 1/{k}*({firstPosition}+{secondPosition}+{thirdPosition}+{fourthPosition}+{fifthPosition}+{sixthPosition}+{seventhPosition}+{eighthPosition}+{ninethPosition}) = {Math.Round(TongCacDiem,4,MidpointRounding.AwayFromZero)} = {Math.Round(TongCacDiem,MidpointRounding.AwayFromZero)}");
+                double TongCacDiem = (firstPosition + secondPosition + thirdPosition + fourthPosition + fifthPosition + sixthPosition + seventhPosition + eighthPosition + ninethPosition) / k;
+                System.Console.WriteLine($"Itb({i},{j}): 1/{k}*({firstPosition}+{secondPosition}+{thirdPosition}+{fourthPosition}+{fifthPosition}+{sixthPosition}+{seventhPosition}+{eighthPosition}+{ninethPosition}) = {Math.Round(TongCacDiem, 4, MidpointRounding.AwayFromZero)} = {Math.Round(TongCacDiem, MidpointRounding.AwayFromZero)}");
 
-                matrixResult[i,j] = Math.Round(TongCacDiem,MidpointRounding.AwayFromZero);
+                matrixResult[i, j] = Math.Round(TongCacDiem, MidpointRounding.AwayFromZero);
             }
         }
         System.Console.WriteLine();
