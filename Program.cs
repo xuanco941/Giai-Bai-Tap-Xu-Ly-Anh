@@ -7,71 +7,43 @@ System.Console.WriteLine("Lọc nhiễu trung bình hình học, Dò biên Kirsc
 System.Console.WriteLine();
 double[,] maTran = new double[5, 5];
 
-// Console.WriteLine("Nhập ma trận 5x5 đầu vào: ");
-// for (int i = 0; i < 5; i++)
-// {
-//     for (int j = 0; j < 5; j++)
-//     {
-//         Console.WriteLine($"Điểm ({i},{j}): ");
-//         var x = Console.ReadLine();
-//         maTran[i, j] = Convert.ToDouble(x);
-//     }
-// }
+Console.WriteLine("Nhập ma trận 5x5 đầu vào: ");
+for (int i = 0; i < 5; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        Console.WriteLine($"Điểm ({i},{j}): ");
+        var x = Console.ReadLine();
+        maTran[i, j] = Convert.ToDouble(x);
+    }
+}
 
-//xuân
-maTran[0,0] = 5;
-maTran[0,1] = 7;
-maTran[0,2] = 6;
-maTran[0,3] = 4;
-maTran[0,4] = 3;
-maTran[1,0] = 2;
-maTran[1,1] = 2;
-maTran[1,2] = 3;
-maTran[1,3] = 7;
-maTran[1,4] = 5;
-maTran[2,0] = 5;
-maTran[2,1] = 6;
-maTran[2,2] = 7;
-maTran[2,3] = 2;
-maTran[2,4] = 7;
-maTran[3,0] = 4;
-maTran[3,1] = 3;
-maTran[3,2] = 5;
-maTran[3,3] = 3;
-maTran[3,4] = 3;
-maTran[4,0] = 4;
-maTran[4,1] = 4;
-maTran[4,2] = 7;
-maTran[4,3] = 5;
-maTran[4,4] = 5;
-
-
-// maTran[0, 0] = 7;
-// maTran[0, 1] = 6;
+// //xuân
+// maTran[0, 0] = 5;
+// maTran[0, 1] = 7;
 // maTran[0, 2] = 6;
-// maTran[0, 3] = 3;
-// maTran[0, 4] = 5;
-// maTran[1, 0] = 6;
+// maTran[0, 3] = 4;
+// maTran[0, 4] = 3;
+// maTran[1, 0] = 2;
 // maTran[1, 1] = 2;
-// maTran[1, 2] = 5;
-// maTran[1, 3] = 6;
-// maTran[1, 4] = 7;
+// maTran[1, 2] = 3;
+// maTran[1, 3] = 7;
+// maTran[1, 4] = 5;
 // maTran[2, 0] = 5;
-// maTran[2, 1] = 1;
-// maTran[2, 2] = 3;
-// maTran[2, 3] = 6;
-// maTran[2, 4] = 4;
+// maTran[2, 1] = 6;
+// maTran[2, 2] = 7;
+// maTran[2, 3] = 2;
+// maTran[2, 4] = 7;
 // maTran[3, 0] = 4;
-// maTran[3, 1] = 6;
-// maTran[3, 2] = 3;
-// maTran[3, 3] = 6;
-// maTran[3, 4] = 1;
-// maTran[4, 0] = 2;
-// maTran[4, 1] = 5;
-// maTran[4, 2] = 6;
-// maTran[4, 3] = 4;
-// maTran[4, 4] = 7;
-
+// maTran[3, 1] = 3;
+// maTran[3, 2] = 5;
+// maTran[3, 3] = 3;
+// maTran[3, 4] = 3;
+// maTran[4, 0] = 4;
+// maTran[4, 1] = 4;
+// maTran[4, 2] = 7;
+// maTran[4, 3] = 5;
+// maTran[4, 4] = 5;
 
 
 Console.WriteLine();
@@ -89,7 +61,7 @@ System.Console.WriteLine();
 Console.WriteLine("Chọn loại thuật toán muốn giải: ");
 void writeSomthing()
 {
-    System.Console.WriteLine("1.Sobel và Prewitt");
+    System.Console.WriteLine("1.Sobel");
     System.Console.WriteLine("2.Alpha");
     System.Console.WriteLine("3.Lọc nhị thức");
     System.Console.WriteLine("4.Lọc nhiễu Min");
@@ -101,6 +73,7 @@ void writeSomthing()
     System.Console.WriteLine("10.Cân bằng Histogram");
     System.Console.WriteLine("11.Lọc trung bình");
     System.Console.WriteLine("12.Tính 4 chỉ số đánh giá chất lượng ảnh");
+    System.Console.WriteLine("13.Prewitt");
     System.Console.WriteLine("----------------------------------------------------");
 }
 
@@ -115,7 +88,7 @@ while (next == 1)
     switch (number)
     {
         case 1:
-            thuattoan.SobelAndPrewitt(maTran);
+            thuattoan.Sobel(maTran);
             break;
         case 2:
             thuattoan.Alpha(maTran);
@@ -149,6 +122,9 @@ while (next == 1)
             break;
         case 12:
             ThuatToan2.Tinh4ChiSo(maTran);
+            break;
+        case 13:
+            thuattoan.Prewitt(maTran);
             break;
     }
     System.Console.WriteLine();
