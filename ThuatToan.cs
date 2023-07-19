@@ -1198,253 +1198,253 @@ class ThuatToan
         }
     }
 
-    public void DoBienKirsch(double[,] maTran)
-    {
-        System.Console.WriteLine("----------Dò Biên Kirsch--------------");
-        System.Console.WriteLine("----------Kết quả----------");
+    // public void DoBienKirsch(double[,] maTran)
+    // {
+    //     System.Console.WriteLine("----------Dò Biên Kirsch--------------");
+    //     System.Console.WriteLine("----------Kết quả----------");
 
-        int[,] K1 = new int[3, 3];
-        int[,] K2 = new int[3, 3];
-        int[,] K3 = new int[3, 3];
-        int[,] K4 = new int[3, 3];
-        int[,] K5 = new int[3, 3];
-        int[,] K6 = new int[3, 3];
-        int[,] K7 = new int[3, 3];
-        int[,] K8 = new int[3, 3];
+    //     int[,] K1 = new int[3, 3];
+    //     int[,] K2 = new int[3, 3];
+    //     int[,] K3 = new int[3, 3];
+    //     int[,] K4 = new int[3, 3];
+    //     int[,] K5 = new int[3, 3];
+    //     int[,] K6 = new int[3, 3];
+    //     int[,] K7 = new int[3, 3];
+    //     int[,] K8 = new int[3, 3];
 
-        int[] arrK1 = { -3, -3, 5, -3, 0, 5, -3, -3, 5 };
-        int[] arrK2 = { -3, 5, 5, -3, 0, 5, -3, -3, -3 };
-        int[] arrK3 = { 5, 5, 5, -3, 0, -3, -3, -3, -3 };
-        int[] arrK4 = { 5, 5, -3, 5, 0, -3, -3, -3, -3 };
-        int[] arrK5 = { 5, -3, -3, 5, 0, -3, 5, -3, -3 };
-        int[] arrK6 = { -3, -3, -3, 5, 0, -3, 5, 5, -3 };
-        int[] arrK7 = { -3, -3, -3, -3, 0, -3, 5, 5, 5 };
-        int[] arrK8 = { -3, -3, -3, -3, 0, 5, -3, 5, 5 };
-        int num = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                int v1 = arrK1[num];
-                K1[i, j] = v1;
-                int v2 = arrK2[num];
-                K2[i, j] = v2;
-                int v3 = arrK3[num];
-                K3[i, j] = v3;
-                int v4 = arrK4[num];
-                K4[i, j] = v4;
-                int v5 = arrK5[num];
-                K5[i, j] = v5;
-                int v6 = arrK6[num];
-                K6[i, j] = v6;
-                int v7 = arrK7[num];
-                K7[i, j] = v7;
-                int v8 = arrK8[num];
-                K8[i, j] = v8;
+    //     int[] arrK1 = { -3, -3, 5, -3, 0, 5, -3, -3, 5 };
+    //     int[] arrK2 = { -3, 5, 5, -3, 0, 5, -3, -3, -3 };
+    //     int[] arrK3 = { 5, 5, 5, -3, 0, -3, -3, -3, -3 };
+    //     int[] arrK4 = { 5, 5, -3, 5, 0, -3, -3, -3, -3 };
+    //     int[] arrK5 = { 5, -3, -3, 5, 0, -3, 5, -3, -3 };
+    //     int[] arrK6 = { -3, -3, -3, 5, 0, -3, 5, 5, -3 };
+    //     int[] arrK7 = { -3, -3, -3, -3, 0, -3, 5, 5, 5 };
+    //     int[] arrK8 = { -3, -3, -3, -3, 0, 5, -3, 5, 5 };
+    //     int num = 0;
+    //     for (int i = 0; i < 3; i++)
+    //     {
+    //         for (int j = 0; j < 3; j++)
+    //         {
+    //             int v1 = arrK1[num];
+    //             K1[i, j] = v1;
+    //             int v2 = arrK2[num];
+    //             K2[i, j] = v2;
+    //             int v3 = arrK3[num];
+    //             K3[i, j] = v3;
+    //             int v4 = arrK4[num];
+    //             K4[i, j] = v4;
+    //             int v5 = arrK5[num];
+    //             K5[i, j] = v5;
+    //             int v6 = arrK6[num];
+    //             K6[i, j] = v6;
+    //             int v7 = arrK7[num];
+    //             K7[i, j] = v7;
+    //             int v8 = arrK8[num];
+    //             K8[i, j] = v8;
 
-                num++;
-            }
+    //             num++;
+    //         }
 
-        }
-        // double[,] maTranChuyenMien = new double[5, 5];
-        // Array.Copy(maTran, maTranChuyenMien,25);
+    //     }
+    //     // double[,] maTranChuyenMien = new double[5, 5];
+    //     // Array.Copy(maTran, maTranChuyenMien,25);
 
-        System.Console.WriteLine("Ma trận chuyển miền [0,1]: ");
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                maTran[i, j] = (Math.Round(maTran[i, j] / 255, 4, MidpointRounding.AwayFromZero));
-            }
+    //     // System.Console.WriteLine("Ma trận chuyển miền [0,1]: ");
+    //     // for (int i = 0; i < 5; i++)
+    //     // {
+    //     //     for (int j = 0; j < 5; j++)
+    //     //     {
+    //     //         maTran[i, j] = (Math.Round(maTran[i, j] / 255, 4, MidpointRounding.AwayFromZero));
+    //     //     }
 
-        }
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                System.Console.Write(maTran[i, j] + "\t");
-            }
-            System.Console.WriteLine();
+    //     // }
+    //     // for (int i = 0; i < 5; i++)
+    //     // {
+    //     //     for (int j = 0; j < 5; j++)
+    //     //     {
+    //     //         System.Console.Write(maTran[i, j] + "\t");
+    //     //     }
+    //     //     System.Console.WriteLine();
 
-        }
-        System.Console.WriteLine();
-        double[,] matrixResult = new double[5, 5];
-        double[,] matrixK1 = new double[5, 5];
-        double[,] matrixK2 = new double[5, 5];
-        double[,] matrixK3 = new double[5, 5];
-        double[,] matrixK4 = new double[5, 5];
-        double[,] matrixK5 = new double[5, 5];
-        double[,] matrixK6 = new double[5, 5];
-        double[,] matrixK7 = new double[5, 5];
-        double[,] matrixK8 = new double[5, 5];
+    //     // }
+    //     System.Console.WriteLine();
+    //     double[,] matrixResult = new double[5, 5];
+    //     double[,] matrixK1 = new double[5, 5];
+    //     double[,] matrixK2 = new double[5, 5];
+    //     double[,] matrixK3 = new double[5, 5];
+    //     double[,] matrixK4 = new double[5, 5];
+    //     double[,] matrixK5 = new double[5, 5];
+    //     double[,] matrixK6 = new double[5, 5];
+    //     double[,] matrixK7 = new double[5, 5];
+    //     double[,] matrixK8 = new double[5, 5];
 
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                double firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition;
+    //     for (int i = 0; i < 5; i++)
+    //     {
+    //         for (int j = 0; j < 5; j++)
+    //         {
+    //             double firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition;
 
-                try
-                {
-                    firstPosition = (maTran[i - 1, j - 1] != 0) ? maTran[i - 1, j - 1] : 0;
-                }
-                catch
-                {
-                    firstPosition = 0;
-                }
-                try
-                {
-                    secondPosition = (maTran[i - 1, j] != 0) ? maTran[i - 1, j] : 0;
-                }
-                catch
-                {
-                    secondPosition = 0;
-                }
-                try
-                {
-                    thirdPosition = (maTran[i - 1, j + 1] != 0) ? maTran[i - 1, j + 1] : 0;
-                }
-                catch
-                {
-                    thirdPosition = 0;
-                }
-                try
-                {
-                    fourthPosition = (maTran[i, j - 1] != 0) ? maTran[i, j - 1] : 0;
-                }
-                catch
-                {
-                    fourthPosition = 0;
-                }
-                try
-                {
-                    fifthPosition = (maTran[i, j] != 0) ? maTran[i, j] : 0;
-                }
-                catch
-                {
-                    fifthPosition = 0;
-                }
-                try
-                {
-                    sixthPosition = (maTran[i, j + 1] != 0) ? maTran[i, j + 1] : 0;
-                }
-                catch
-                {
-                    sixthPosition = 0;
-                }
-                try
-                {
-                    seventhPosition = (maTran[i + 1, j - 1] != 0) ? maTran[i + 1, j - 1] : 0;
-                }
-                catch
-                {
-                    seventhPosition = 0;
-                }
-                try
-                {
-                    eighthPosition = (maTran[i + 1, j] != 0) ? maTran[i + 1, j] : 0;
-                }
-                catch
-                {
-                    eighthPosition = 0;
-                }
-                try
-                {
-                    ninethPosition = (maTran[i + 1, j + 1] != 0) ? maTran[i + 1, j + 1] : 0;
-                }
-                catch
-                {
-                    ninethPosition = 0;
-                }
+    //             try
+    //             {
+    //                 firstPosition = (maTran[i - 1, j - 1] != 0) ? maTran[i - 1, j - 1] : 0;
+    //             }
+    //             catch
+    //             {
+    //                 firstPosition = 0;
+    //             }
+    //             try
+    //             {
+    //                 secondPosition = (maTran[i - 1, j] != 0) ? maTran[i - 1, j] : 0;
+    //             }
+    //             catch
+    //             {
+    //                 secondPosition = 0;
+    //             }
+    //             try
+    //             {
+    //                 thirdPosition = (maTran[i - 1, j + 1] != 0) ? maTran[i - 1, j + 1] : 0;
+    //             }
+    //             catch
+    //             {
+    //                 thirdPosition = 0;
+    //             }
+    //             try
+    //             {
+    //                 fourthPosition = (maTran[i, j - 1] != 0) ? maTran[i, j - 1] : 0;
+    //             }
+    //             catch
+    //             {
+    //                 fourthPosition = 0;
+    //             }
+    //             try
+    //             {
+    //                 fifthPosition = (maTran[i, j] != 0) ? maTran[i, j] : 0;
+    //             }
+    //             catch
+    //             {
+    //                 fifthPosition = 0;
+    //             }
+    //             try
+    //             {
+    //                 sixthPosition = (maTran[i, j + 1] != 0) ? maTran[i, j + 1] : 0;
+    //             }
+    //             catch
+    //             {
+    //                 sixthPosition = 0;
+    //             }
+    //             try
+    //             {
+    //                 seventhPosition = (maTran[i + 1, j - 1] != 0) ? maTran[i + 1, j - 1] : 0;
+    //             }
+    //             catch
+    //             {
+    //                 seventhPosition = 0;
+    //             }
+    //             try
+    //             {
+    //                 eighthPosition = (maTran[i + 1, j] != 0) ? maTran[i + 1, j] : 0;
+    //             }
+    //             catch
+    //             {
+    //                 eighthPosition = 0;
+    //             }
+    //             try
+    //             {
+    //                 ninethPosition = (maTran[i + 1, j + 1] != 0) ? maTran[i + 1, j + 1] : 0;
+    //             }
+    //             catch
+    //             {
+    //                 ninethPosition = 0;
+    //             }
 
-                // đảo cột 1 sang cột 3, cột 3 sang cột 1
+    //             // đảo cột 1 sang cột 3, cột 3 sang cột 1
 
-                double saveOne = firstPosition;
-                double saveTwo = fourthPosition;
-                double saveThree = seventhPosition;
+    //             double saveOne = firstPosition;
+    //             double saveTwo = fourthPosition;
+    //             double saveThree = seventhPosition;
 
-                firstPosition = thirdPosition;
-                fourthPosition = sixthPosition;
-                seventhPosition = ninethPosition;
+    //             firstPosition = thirdPosition;
+    //             fourthPosition = sixthPosition;
+    //             seventhPosition = ninethPosition;
 
-                thirdPosition = saveOne;
-                sixthPosition = saveTwo;
-                ninethPosition = saveThree;
+    //             thirdPosition = saveOne;
+    //             sixthPosition = saveTwo;
+    //             ninethPosition = saveThree;
 
-                // double[] result = { firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition };
+    //             // double[] result = { firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition };
 
-                // Nhân chập 3x3 với K
+    //             // Nhân chập 3x3 với K
 
-                double result1 = Math.Round(firstPosition * K1[0, 0] + secondPosition * K1[0, 1] + thirdPosition * K1[0, 2] + fourthPosition * K1[1, 0] + fifthPosition * K1[1, 1] + sixthPosition * K1[1, 2] + seventhPosition * K1[2, 0] + eighthPosition * K1[2, 1] + ninethPosition * K1[2, 2], 4, MidpointRounding.AwayFromZero);
-                double result2 = Math.Round(firstPosition * K2[0, 0] + secondPosition * K2[0, 1] + thirdPosition * K2[0, 2] + fourthPosition * K2[1, 0] + fifthPosition * K2[1, 1] + sixthPosition * K2[1, 2] + seventhPosition * K2[2, 0] + eighthPosition * K2[2, 1] + ninethPosition * K2[2, 2], 4, MidpointRounding.AwayFromZero);
-                double result3 = Math.Round(firstPosition * K3[0, 0] + secondPosition * K3[0, 1] + thirdPosition * K3[0, 2] + fourthPosition * K3[1, 0] + fifthPosition * K3[1, 1] + sixthPosition * K3[1, 2] + seventhPosition * K3[2, 0] + eighthPosition * K3[2, 1] + ninethPosition * K3[2, 2], 4, MidpointRounding.AwayFromZero);
-                double result4 = Math.Round(firstPosition * K4[0, 0] + secondPosition * K4[0, 1] + thirdPosition * K4[0, 2] + fourthPosition * K4[1, 0] + fifthPosition * K4[1, 1] + sixthPosition * K4[1, 2] + seventhPosition * K4[2, 0] + eighthPosition * K4[2, 1] + ninethPosition * K4[2, 2], 4, MidpointRounding.AwayFromZero);
-                double result5 = Math.Round(firstPosition * K5[0, 0] + secondPosition * K5[0, 1] + thirdPosition * K5[0, 2] + fourthPosition * K5[1, 0] + fifthPosition * K5[1, 1] + sixthPosition * K5[1, 2] + seventhPosition * K5[2, 0] + eighthPosition * K5[2, 1] + ninethPosition * K5[2, 2], 4, MidpointRounding.AwayFromZero);
-                double result6 = Math.Round(firstPosition * K6[0, 0] + secondPosition * K6[0, 1] + thirdPosition * K6[0, 2] + fourthPosition * K6[1, 0] + fifthPosition * K6[1, 1] + sixthPosition * K6[1, 2] + seventhPosition * K6[2, 0] + eighthPosition * K6[2, 1] + ninethPosition * K6[2, 2], 4, MidpointRounding.AwayFromZero);
-                double result7 = Math.Round(firstPosition * K7[0, 0] + secondPosition * K7[0, 1] + thirdPosition * K7[0, 2] + fourthPosition * K7[1, 0] + fifthPosition * K7[1, 1] + sixthPosition * K7[1, 2] + seventhPosition * K7[2, 0] + eighthPosition * K7[2, 1] + ninethPosition * K7[2, 2], 4, MidpointRounding.AwayFromZero);
-                double result8 = Math.Round(firstPosition * K8[0, 0] + secondPosition * K8[0, 1] + thirdPosition * K8[0, 2] + fourthPosition * K8[1, 0] + fifthPosition * K8[1, 1] + sixthPosition * K8[1, 2] + seventhPosition * K8[2, 0] + eighthPosition * K8[2, 1] + ninethPosition * K8[2, 2], 4, MidpointRounding.AwayFromZero);
+    //             double result1 = Math.Round(firstPosition * K1[0, 0] + secondPosition * K1[0, 1] + thirdPosition * K1[0, 2] + fourthPosition * K1[1, 0] + fifthPosition * K1[1, 1] + sixthPosition * K1[1, 2] + seventhPosition * K1[2, 0] + eighthPosition * K1[2, 1] + ninethPosition * K1[2, 2], 4, MidpointRounding.AwayFromZero);
+    //             double result2 = Math.Round(firstPosition * K2[0, 0] + secondPosition * K2[0, 1] + thirdPosition * K2[0, 2] + fourthPosition * K2[1, 0] + fifthPosition * K2[1, 1] + sixthPosition * K2[1, 2] + seventhPosition * K2[2, 0] + eighthPosition * K2[2, 1] + ninethPosition * K2[2, 2], 4, MidpointRounding.AwayFromZero);
+    //             double result3 = Math.Round(firstPosition * K3[0, 0] + secondPosition * K3[0, 1] + thirdPosition * K3[0, 2] + fourthPosition * K3[1, 0] + fifthPosition * K3[1, 1] + sixthPosition * K3[1, 2] + seventhPosition * K3[2, 0] + eighthPosition * K3[2, 1] + ninethPosition * K3[2, 2], 4, MidpointRounding.AwayFromZero);
+    //             double result4 = Math.Round(firstPosition * K4[0, 0] + secondPosition * K4[0, 1] + thirdPosition * K4[0, 2] + fourthPosition * K4[1, 0] + fifthPosition * K4[1, 1] + sixthPosition * K4[1, 2] + seventhPosition * K4[2, 0] + eighthPosition * K4[2, 1] + ninethPosition * K4[2, 2], 4, MidpointRounding.AwayFromZero);
+    //             double result5 = Math.Round(firstPosition * K5[0, 0] + secondPosition * K5[0, 1] + thirdPosition * K5[0, 2] + fourthPosition * K5[1, 0] + fifthPosition * K5[1, 1] + sixthPosition * K5[1, 2] + seventhPosition * K5[2, 0] + eighthPosition * K5[2, 1] + ninethPosition * K5[2, 2], 4, MidpointRounding.AwayFromZero);
+    //             double result6 = Math.Round(firstPosition * K6[0, 0] + secondPosition * K6[0, 1] + thirdPosition * K6[0, 2] + fourthPosition * K6[1, 0] + fifthPosition * K6[1, 1] + sixthPosition * K6[1, 2] + seventhPosition * K6[2, 0] + eighthPosition * K6[2, 1] + ninethPosition * K6[2, 2], 4, MidpointRounding.AwayFromZero);
+    //             double result7 = Math.Round(firstPosition * K7[0, 0] + secondPosition * K7[0, 1] + thirdPosition * K7[0, 2] + fourthPosition * K7[1, 0] + fifthPosition * K7[1, 1] + sixthPosition * K7[1, 2] + seventhPosition * K7[2, 0] + eighthPosition * K7[2, 1] + ninethPosition * K7[2, 2], 4, MidpointRounding.AwayFromZero);
+    //             double result8 = Math.Round(firstPosition * K8[0, 0] + secondPosition * K8[0, 1] + thirdPosition * K8[0, 2] + fourthPosition * K8[1, 0] + fifthPosition * K8[1, 1] + sixthPosition * K8[1, 2] + seventhPosition * K8[2, 0] + eighthPosition * K8[2, 1] + ninethPosition * K8[2, 2], 4, MidpointRounding.AwayFromZero);
 
-                matrixK1[i, j] = result1;
-                matrixK2[i, j] = result2;
-                matrixK3[i, j] = result3;
-                matrixK4[i, j] = result4;
-                matrixK5[i, j] = result5;
-                matrixK6[i, j] = result6;
-                matrixK7[i, j] = result7;
-                matrixK8[i, j] = result8;
+    //             matrixK1[i, j] = result1;
+    //             matrixK2[i, j] = result2;
+    //             matrixK3[i, j] = result3;
+    //             matrixK4[i, j] = result4;
+    //             matrixK5[i, j] = result5;
+    //             matrixK6[i, j] = result6;
+    //             matrixK7[i, j] = result7;
+    //             matrixK8[i, j] = result8;
 
-                double[] arrMatrix = { result1, result2, result3, result4, result5, result6, result7, result8 };
-                matrixResult[i, j] = arrMatrix.Max();
-            }
+    //             double[] arrMatrix = { result1, result2, result3, result4, result5, result6, result7, result8 };
+    //             matrixResult[i, j] = arrMatrix.Max();
+    //         }
 
-        }
-        System.Console.WriteLine("Đường biên theo mặt nạ K1:");
-        OutPutMaTrixFive(matrixK1);
+    //     }
+    //     System.Console.WriteLine("Đường biên theo mặt nạ K1:");
+    //     OutPutMaTrixFive(matrixK1);
 
-        System.Console.WriteLine("Đường biên theo mặt nạ K2:");
-        OutPutMaTrixFive(matrixK2);
+    //     System.Console.WriteLine("Đường biên theo mặt nạ K2:");
+    //     OutPutMaTrixFive(matrixK2);
 
-        System.Console.WriteLine("Đường biên theo mặt nạ K3:");
-        OutPutMaTrixFive(matrixK3);
+    //     System.Console.WriteLine("Đường biên theo mặt nạ K3:");
+    //     OutPutMaTrixFive(matrixK3);
 
-        System.Console.WriteLine("Đường biên theo mặt nạ K4:");
-        OutPutMaTrixFive(matrixK4);
+    //     System.Console.WriteLine("Đường biên theo mặt nạ K4:");
+    //     OutPutMaTrixFive(matrixK4);
 
-        System.Console.WriteLine("Đường biên theo mặt nạ K5:");
-        OutPutMaTrixFive(matrixK5);
+    //     System.Console.WriteLine("Đường biên theo mặt nạ K5:");
+    //     OutPutMaTrixFive(matrixK5);
 
-        System.Console.WriteLine("Đường biên theo mặt nạ K6:");
-        OutPutMaTrixFive(matrixK6);
+    //     System.Console.WriteLine("Đường biên theo mặt nạ K6:");
+    //     OutPutMaTrixFive(matrixK6);
 
-        System.Console.WriteLine("Đường biên theo mặt nạ K7:");
-        OutPutMaTrixFive(matrixK7);
+    //     System.Console.WriteLine("Đường biên theo mặt nạ K7:");
+    //     OutPutMaTrixFive(matrixK7);
 
-        System.Console.WriteLine("Đường biên theo mặt nạ K8:");
-        OutPutMaTrixFive(matrixK8);
+    //     System.Console.WriteLine("Đường biên theo mặt nạ K8:");
+    //     OutPutMaTrixFive(matrixK8);
 
 
-        System.Console.WriteLine();
-        System.Console.WriteLine("-Ma trận G=max{|G1|,|G2|...,|G8|}-");
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                System.Console.Write(matrixResult[i, j] + "\t");
-            }
-            System.Console.WriteLine();
-        }
+    //     System.Console.WriteLine();
+    //     System.Console.WriteLine("-Ma trận G=max{|G1|,|G2|...,|G8|}-");
+    //     for (int i = 0; i < 5; i++)
+    //     {
+    //         for (int j = 0; j < 5; j++)
+    //         {
+    //             System.Console.Write(matrixResult[i, j] + "\t");
+    //         }
+    //         System.Console.WriteLine();
+    //     }
 
-        System.Console.WriteLine();
-        System.Console.WriteLine("-Chuyển về miền [0,255]-");
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                System.Console.Write(Math.Round((matrixResult[i, j] * 255), MidpointRounding.AwayFromZero) + "\t");
-            }
-            System.Console.WriteLine();
-        }
-    }
+    //     System.Console.WriteLine();
+    //     // System.Console.WriteLine("-Chuyển về miền [0,255]-");
+    //     for (int i = 0; i < 5; i++)
+    //     {
+    //         for (int j = 0; j < 5; j++)
+    //         {
+    //             System.Console.Write(Math.Round(matrixResult[i, j],2, MidpointRounding.AwayFromZero) + "\t");
+    //         }
+    //         System.Console.WriteLine();
+    //     }
+    // }
 
     public void OutPutMaTrixFive(double[,] matrix)
     {
@@ -1573,6 +1573,15 @@ class ThuatToan
             }
             System.Console.WriteLine();
         }
+        System.Console.WriteLine("----------Kết quả-------------");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(Math.Abs(matrixResult[i, j]) + "\t");
+            }
+            System.Console.WriteLine();
+        }
     }
 
     public void CanBangHistogram(double[,] maTran)
@@ -1664,7 +1673,7 @@ class ThuatToan
         //Sk
         System.Console.WriteLine();
         System.Console.WriteLine();
-        System.Console.WriteLine("Tinh Sk theo cong thuc: ((cdf(nk)-cdf(min))*(L-1)/(M*N)-cdf(min))");
+        System.Console.WriteLine("Tính Sk theo công thức: ((cdf(nk)-cdf(min))*(L-1)/(M*N)-cdf(min))");
         System.Console.WriteLine();
         ArrayList sk = new ArrayList();
         double[] cloneCDF = (double[])cdf.ToArray(typeof(double));
@@ -1683,6 +1692,36 @@ class ThuatToan
         {
             System.Console.Write(sk[i] + "\t");
         }
+
+        Dictionary<double, double> dik = new Dictionary<double, double>();
+
+        for (int i = 0; i < rk.Count; i++)
+        {
+            dik.Add(Convert.ToDouble(rk[i]), Convert.ToDouble(sk[i]));
+        }
+        foreach (var k in dik)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    if (maTran[i, j] == k.Key)
+                    {
+                        maTran[i, j] = k.Value;
+                    }
+                }
+            }
+        }
+        Console.WriteLine("\n\nKết quả sau khi cân bằng Histogram: ");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                Console.Write($"{maTran[i, j]} \t");
+            }
+            Console.WriteLine();
+        }
+
 
 
 
@@ -1805,6 +1844,177 @@ class ThuatToan
         }
     }
 
+    public void TuongQuan(double[,] maTran)
+    {
+        Console.WriteLine("----------Tương quan-----------");
+        System.Console.WriteLine("Nhập ma trận mặt nạ 3x3: ");
+        List<double> B = new List<double>();
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Console.WriteLine($"Điểm ({i},{j}): ");
+                var x = Console.ReadLine();
+                B.Add(Convert.ToDouble(x));
+            }
+            Console.WriteLine();
+        }
+        System.Console.WriteLine("----------Kết quả----------");
 
+        double[,] matrixResult = new double[5, 5];
+        double[,] sumOf9Pow2 = new double[5, 5];
+
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                double firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition;
+
+                try
+                {
+                    firstPosition = (maTran[i - 1, j - 1] != 0) ? maTran[i - 1, j - 1] : 0;
+                }
+                catch
+                {
+                    firstPosition = 0;
+                }
+                try
+                {
+                    secondPosition = (maTran[i - 1, j] != 0) ? maTran[i - 1, j] : 0;
+                }
+                catch
+                {
+                    secondPosition = 0;
+                }
+                try
+                {
+                    thirdPosition = (maTran[i - 1, j + 1] != 0) ? maTran[i - 1, j + 1] : 0;
+                }
+                catch
+                {
+                    thirdPosition = 0;
+                }
+                try
+                {
+                    fourthPosition = (maTran[i, j - 1] != 0) ? maTran[i, j - 1] : 0;
+                }
+                catch
+                {
+                    fourthPosition = 0;
+                }
+                try
+                {
+                    fifthPosition = (maTran[i, j] != 0) ? maTran[i, j] : 0;
+                }
+                catch
+                {
+                    fifthPosition = 0;
+                }
+                try
+                {
+                    sixthPosition = (maTran[i, j + 1] != 0) ? maTran[i, j + 1] : 0;
+                }
+                catch
+                {
+                    sixthPosition = 0;
+                }
+                try
+                {
+                    seventhPosition = (maTran[i + 1, j - 1] != 0) ? maTran[i + 1, j - 1] : 0;
+                }
+                catch
+                {
+                    seventhPosition = 0;
+                }
+                try
+                {
+                    eighthPosition = (maTran[i + 1, j] != 0) ? maTran[i + 1, j] : 0;
+                }
+                catch
+                {
+                    eighthPosition = 0;
+                }
+                try
+                {
+                    ninethPosition = (maTran[i + 1, j + 1] != 0) ? maTran[i + 1, j + 1] : 0;
+                }
+                catch
+                {
+                    ninethPosition = 0;
+                }
+
+                string bieuthuc = "";
+                double[] result = { firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition };
+                System.Console.WriteLine($"Điểm({i},{j}): ");
+                double kq = 0;
+                double m = 0;
+                foreach (var item in result)
+                {
+                    m = m + Math.Pow(item, 2);
+                }
+                sumOf9Pow2[i, j] = m;
+
+                for (int item = 0; item < result.Length; item++)
+                {
+                    bieuthuc += "(" + result[item].ToString() + $"*{B[item]}" + ") + ";
+                    kq = kq + (result[item] * B[item]);
+                    System.Console.Write($"{result[item]}   ");
+                    if ((item + 1) == 3 || (item + 1) == 6)
+                    {
+                        System.Console.WriteLine();
+                    }
+                }
+                System.Console.WriteLine();
+                kq = Math.Round(kq, 2, MidpointRounding.AwayFromZero);
+                System.Console.WriteLine($"I({i},{j}) = {bieuthuc} = {kq}");
+                matrixResult[i, j] = kq;
+                System.Console.WriteLine();
+            }
+
+        }
+        System.Console.WriteLine();
+
+        System.Console.WriteLine("----------Kết quả-------------");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(matrixResult[i, j] + "\t");
+            }
+            System.Console.WriteLine();
+        }
+
+
+        System.Console.WriteLine("\n\nÁp dụng tính tương quan giữa ma trận K và ảnh I:");
+
+
+        double n2 = 0;
+        foreach (var item in B)
+        {
+            n2 = n2 + Math.Pow(item, 2);
+        }
+
+
+        double[,] valueTUongQuan = new double[5, 5];
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                valueTUongQuan[i, j] = Math.Round(matrixResult[i, j] / (Math.Sqrt(n2) * Math.Sqrt(sumOf9Pow2[i, j])), 2, MidpointRounding.AwayFromZero);
+                Console.WriteLine($"C{i},{j} = {matrixResult[i, j]}/(\u221A{n2}*\u221A{sumOf9Pow2[i, j]})");
+            }
+        }
+
+
+
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(valueTUongQuan[i, j] + "\t");
+            }
+            System.Console.WriteLine();
+        }
+    }
 
 }

@@ -1,4 +1,4 @@
-public class ThuatToan2
+public class ChiSoAnh
 {
     public static void Tinh4ChiSo(double[,] maTran)
     {
