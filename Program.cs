@@ -111,6 +111,7 @@ void writeSomthing()
     System.Console.WriteLine("13.Biến đổi ảnh sử dụng hàm mũ(gamma)");
     System.Console.WriteLine("14.Tương quan");
     System.Console.WriteLine("15.Biến đổi ảnh sử dụng hàm logarit");
+    System.Console.WriteLine("16.Trung vị");
     System.Console.WriteLine("----------------------------------------------------");
 }
 
@@ -168,6 +169,9 @@ while (next == 1)
             break;
         case 15:
             BienDoiAnh.BienDoiAnhLogarit(maTran);
+            break;
+        case 16:
+            thuattoan.LocTrungVi(maTran);
             break;
     }
     System.Console.WriteLine();

@@ -2017,4 +2017,207 @@ class ThuatToan
         }
     }
 
+    public void LocTrungVi(double[,] maTran)
+
+    {
+        System.Console.WriteLine("Nhập m,n (3 hoặc 5):");
+        double k = Convert.ToDouble(Console.ReadLine());
+        System.Console.WriteLine("----------Lọc Trung vị--------------");
+        System.Console.WriteLine("----------Kết quả----------");
+        double[,] matrixResult = new double[5, 5];
+        if (k == 3)
+        {
+            k = 3;
+            System.Console.WriteLine("m,n = 3");
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    double firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition;
+
+                    try
+                    {
+                        firstPosition = (maTran[i - 1, j - 1] != 0) ? maTran[i - 1, j - 1] : 0;
+                    }
+                    catch
+                    {
+                        firstPosition = 0;
+                    }
+                    try
+                    {
+                        secondPosition = (maTran[i - 1, j] != 0) ? maTran[i - 1, j] : 0;
+                    }
+                    catch
+                    {
+                        secondPosition = 0;
+                    }
+                    try
+                    {
+                        thirdPosition = (maTran[i - 1, j + 1] != 0) ? maTran[i - 1, j + 1] : 0;
+                    }
+                    catch
+                    {
+                        thirdPosition = 0;
+                    }
+                    try
+                    {
+                        fourthPosition = (maTran[i, j - 1] != 0) ? maTran[i, j - 1] : 0;
+                    }
+                    catch
+                    {
+                        fourthPosition = 0;
+                    }
+                    try
+                    {
+                        fifthPosition = (maTran[i, j] != 0) ? maTran[i, j] : 0;
+                    }
+                    catch
+                    {
+                        fifthPosition = 0;
+                    }
+                    try
+                    {
+                        sixthPosition = (maTran[i, j + 1] != 0) ? maTran[i, j + 1] : 0;
+                    }
+                    catch
+                    {
+                        sixthPosition = 0;
+                    }
+                    try
+                    {
+                        seventhPosition = (maTran[i + 1, j - 1] != 0) ? maTran[i + 1, j - 1] : 0;
+                    }
+                    catch
+                    {
+                        seventhPosition = 0;
+                    }
+                    try
+                    {
+                        eighthPosition = (maTran[i + 1, j] != 0) ? maTran[i + 1, j] : 0;
+                    }
+                    catch
+                    {
+                        eighthPosition = 0;
+                    }
+                    try
+                    {
+                        ninethPosition = (maTran[i + 1, j + 1] != 0) ? maTran[i + 1, j + 1] : 0;
+                    }
+                    catch
+                    {
+                        ninethPosition = 0;
+                    }
+
+                    List<double> result = new List<double> { firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition };
+                    result.Sort();
+                    Console.WriteLine($"\nĐiểm[{i},{j}]:");
+                    for (int o = 0; o < 9; o++)
+                    {
+                        if (o == 4)
+                        {
+                            matrixResult[i, j] = result[4];
+                            Console.Write($"-[{result[4]}]-");
+                            continue;
+                        }
+                        else if (o == 0)
+                        {
+                            Console.Write(result[o] + "-");
+                        }
+                        else if (o == 8)
+                        {
+                            Console.Write("-" + result[o]);
+                        }
+                        else
+                        {
+                            Console.Write("-" + result[o] + "-");
+                        }
+                    }
+                    Console.WriteLine();
+
+                }
+            }
+
+        }
+        else
+        {
+            k = 5;
+            System.Console.WriteLine("m,n = 5");
+
+            List<List<double>> resultLists = new List<List<double>>();
+
+            int arraySize = 5;
+            int range = 2; // Half of the range, so the total range is 5x5
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                for (int j = 0; j < arraySize; j++)
+                {
+                    List<double> currentList = new List<double>();
+
+                    for (int x = i - range; x <= i + range; x++)
+                    {
+                        for (int y = j - range; y <= j + range; y++)
+                        {
+                            if (x >= 0 && x < arraySize && y >= 0 && y < arraySize)
+                            {
+                                currentList.Add(maTran[x, y]);
+                            }
+                            else
+                            {
+                                currentList.Add(0); // Add 0 for elements outside the array boundaries
+                            }
+                        }
+                    }
+
+                    resultLists.Add(currentList);
+                }
+            }
+
+            // Printing the result lists
+            int t = 0;
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Console.WriteLine($"\nĐiểm[{i},{j}]:");
+                    for (int o = 0; o < 25; o++)
+                    {
+                        resultLists[t].Sort();
+                        if (o == 13)
+                        {
+                            matrixResult[i, j] = resultLists[t][13];
+                            Console.Write($"-[{resultLists[t][13]}]-");
+                        }
+                        else if (o == 0)
+                        {
+                            Console.Write(resultLists[t][o] + "-");
+                        }
+                        else if (o == 24)
+                        {
+                            Console.Write("-" + resultLists[t][o]);
+                        }
+                        else
+                        {
+                            Console.Write("-" + resultLists[t][o] + "-");
+                        }
+                    }
+                    t+=1;
+                    Console.WriteLine();
+                }
+            }
+        }
+        System.Console.WriteLine();
+
+        System.Console.WriteLine("----------Ma trận sau khi lọc trung vị-------------");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(matrixResult[i, j] + "\t");
+            }
+            System.Console.WriteLine();
+        }
+    }
+
 }
