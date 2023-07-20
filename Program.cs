@@ -108,8 +108,9 @@ void writeSomthing()
     System.Console.WriteLine("10.Lọc trung bình");
     System.Console.WriteLine("11.Tính 4 chỉ số đánh giá chất lượng ảnh");
     System.Console.WriteLine("12.Prewitt");
-    System.Console.WriteLine("13.Biến đổi ảnh sử dụng hàm mũ");
+    System.Console.WriteLine("13.Biến đổi ảnh sử dụng hàm mũ(gamma)");
     System.Console.WriteLine("14.Tương quan");
+    System.Console.WriteLine("15.Biến đổi ảnh sử dụng hàm logarit");
     System.Console.WriteLine("----------------------------------------------------");
 }
 
@@ -164,6 +165,9 @@ while (next == 1)
             break;
         case 14:
             thuattoan.TuongQuan(maTran);
+            break;
+        case 15:
+            BienDoiAnh.BienDoiAnhLogarit(maTran);
             break;
     }
     System.Console.WriteLine();

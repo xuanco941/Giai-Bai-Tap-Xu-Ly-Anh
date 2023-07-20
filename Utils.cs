@@ -48,6 +48,25 @@ public class Utils
             }
             System.Console.WriteLine();
         }
+        System.Console.WriteLine("\n=>\n");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if(maTran[i,j] > soMaxChuyenMien){
+                    maTran[i,j] = soMaxChuyenMien;
+                }
+            }
+
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(maTran[i, j] + "\t");
+            }
+            System.Console.WriteLine();
+        }
 
         return maTran;
 
