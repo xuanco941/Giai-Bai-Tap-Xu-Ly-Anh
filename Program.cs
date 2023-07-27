@@ -4,7 +4,7 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 Console.WriteLine("Áp Dụng Cho Ma Trận 5x5 !!! Hãy nhập tất cả bằng số !!!!");
 System.Console.WriteLine("Hiện có: Sobel và Prewitt, Alpha, Lọc nhị thức, Lọc nhiễu Min, Lọc nhiễu Max, Lọc nhiễu trung điểm, ");
 System.Console.WriteLine("Lọc nhiễu trung bình hình học, Laplacian, Tương quan, . . . .");
-System.Console.WriteLine("-code by https://github.com/xuanco941-\n");
+System.Console.WriteLine(" - code by https://github.com/xuanco941 - \n");
 double[,] maTran = new double[5, 5];
 
 Console.WriteLine("Nhập ma trận 5x5 đầu vào: ");
