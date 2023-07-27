@@ -2255,7 +2255,7 @@ class ThuatToan
         PrintMatrix(mask);
 
         // chuẩn hóa ma trận
-        Console.WriteLine("Chuẩn hóa bằng cách chia các phần tử cho tổng các phần tử:");
+        Console.WriteLine("\nChuẩn hóa bằng cách chia các phần tử cho tổng các phần tử:");
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
@@ -2264,6 +2264,7 @@ class ThuatToan
                 mask[i, j] = Math.Round(mask[i, j] / norm, 3, MidpointRounding.AwayFromZero);
             }
         }
+        Console.WriteLine();
         PrintMatrix(mask);
         return mask;
 
@@ -2287,7 +2288,6 @@ class ThuatToan
         System.Console.WriteLine("Nhập kích thước (3 hoặc 5):");
         double k = Convert.ToDouble(Console.ReadLine());
         System.Console.WriteLine("----------Lọc Gaussian--------------");
-        System.Console.WriteLine("----------Kết quả----------");
         double[,] matrixResult = new double[5, 5];
         if (k == 3)
         {
@@ -2304,6 +2304,8 @@ class ThuatToan
                     mask[i, j] = Convert.ToDouble(x);
                 }
             }
+
+            System.Console.WriteLine("\n----------Kết quả----------\n");
 
             for (int i = 0; i < 5; i++)
             {
@@ -2384,11 +2386,11 @@ class ThuatToan
                         ninethPosition = 0;
                     }
 
-                    double res = mask[0, 0]*firstPosition + mask[0, 1]*secondPosition + mask[0, 2]*thirdPosition + mask[1, 0]*fourthPosition + mask[1, 1]*fifthPosition + mask[1, 2]*sixthPosition + mask[2, 0]*seventhPosition + mask[2, 1]*eighthPosition + mask[2, 2]*ninethPosition;
-                    res = Math.Round(res,3,MidpointRounding.AwayFromZero);
+                    double res = mask[0, 0] * firstPosition + mask[0, 1] * secondPosition + mask[0, 2] * thirdPosition + mask[1, 0] * fourthPosition + mask[1, 1] * fifthPosition + mask[1, 2] * sixthPosition + mask[2, 0] * seventhPosition + mask[2, 1] * eighthPosition + mask[2, 2] * ninethPosition;
+                    res = Math.Round(res, 3, MidpointRounding.AwayFromZero);
                     Console.WriteLine($"G[{i},{j}] = ({mask[0, 0]}*{firstPosition}) + ({mask[0, 1]}*{secondPosition}) + ({mask[0, 2]}*{thirdPosition}) + ({mask[1, 0]}*{fourthPosition}) + ({mask[1, 1]}*{fifthPosition}) + ({mask[1, 2]}*{sixthPosition}) + ({mask[2, 0]}*{seventhPosition}) + ({mask[2, 1]}*{eighthPosition}) + ({mask[2, 2]}*{ninethPosition}) = {res}");
 
-                    matrixResult[i,j] = res;
+                    matrixResult[i, j] = res;
                 }
             }
 
@@ -2396,80 +2398,275 @@ class ThuatToan
         else
         {
             k = 5;
+            double[,] mask = new double[5, 5];
             System.Console.WriteLine("m,n = 5");
-
-            List<List<double>> resultLists = new List<List<double>>();
-
-            int arraySize = 5;
-            int range = 2; // Half of the range, so the total range is 5x5
-
-            for (int i = 0; i < arraySize; i++)
+            Console.WriteLine("Nhập ma trận mặt nạ gaussian 5x5: ");
+            for (int i = 0; i < 5; i++)
             {
-                for (int j = 0; j < arraySize; j++)
+                for (int j = 0; j < 5; j++)
                 {
-                    List<double> currentList = new List<double>();
-
-                    for (int x = i - range; x <= i + range; x++)
-                    {
-                        for (int y = j - range; y <= j + range; y++)
-                        {
-                            if (x >= 0 && x < arraySize && y >= 0 && y < arraySize)
-                            {
-                                currentList.Add(maTran[x, y]);
-                            }
-                            else
-                            {
-                                currentList.Add(0); // Add 0 for elements outside the array boundaries
-                            }
-                        }
-                    }
-
-                    resultLists.Add(currentList);
+                    Console.WriteLine($"Điểm ({i},{j}): ");
+                    var x = Console.ReadLine();
+                    mask[i, j] = Convert.ToDouble(x);
                 }
             }
 
-            // Printing the result lists
-            int t = 0;
+            System.Console.WriteLine("\n----------Kết quả----------\n");
 
             for (int i = 0; i < 5; i++)
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    Console.WriteLine($"\nĐiểm[{i},{j}]:");
-                    for (int o = 0; o < 25; o++)
+                    double p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25;
+                    try
                     {
-                        resultLists[t].Sort();
-                        if (o == 13)
-                        {
-                            matrixResult[i, j] = resultLists[t][13];
-                            Console.Write($"-[{resultLists[t][13]}]-");
-                        }
-                        else if (o == 0)
-                        {
-                            Console.Write(resultLists[t][o] + "-");
-                        }
-                        else if (o == 24)
-                        {
-                            Console.Write("-" + resultLists[t][o]);
-                        }
-                        else
-                        {
-                            Console.Write("-" + resultLists[t][o] + "-");
-                        }
+                        p1 = (maTran[i - 2, j - 2] != 0) ? maTran[i - 2, j - 2] : 0;
                     }
-                    t += 1;
+                    catch
+                    {
+                        p1 = 0;
+                    }
+                    try
+                    {
+                        p2 = (maTran[i - 2, j - 1] != 0) ? maTran[i - 2, j - 1] : 0;
+                    }
+                    catch
+                    {
+                        p2 = 0;
+                    }
+                    try
+                    {
+                        p3 = (maTran[i - 2, j] != 0) ? maTran[i - 2, j] : 0;
+                    }
+                    catch
+                    {
+                        p3 = 0;
+                    }
+                    try
+                    {
+                        p4 = (maTran[i - 2, j + 1] != 0) ? maTran[i - 2, j + 1] : 0;
+                    }
+                    catch
+                    {
+                        p4 = 0;
+                    }
+                    try
+                    {
+                        p5 = (maTran[i - 2, j + 2] != 0) ? maTran[i - 2, j + 2] : 0;
+                    }
+                    catch
+                    {
+                        p5 = 0;
+                    }
+
+
+                    //
+
+
+                    try
+                    {
+                        p6 = (maTran[i - 1, j - 2] != 0) ? maTran[i - 1, j - 2] : 0;
+                    }
+                    catch
+                    {
+                        p6 = 0;
+                    }
+                    try
+                    {
+                        p7 = (maTran[i - 1, j - 1] != 0) ? maTran[i - 1, j - 1] : 0;
+                    }
+                    catch
+                    {
+                        p7 = 0;
+                    }
+                    try
+                    {
+                        p8 = (maTran[i - 1, j] != 0) ? maTran[i - 1, j] : 0;
+                    }
+                    catch
+                    {
+                        p8 = 0;
+                    }
+                    try
+                    {
+                        p9 = (maTran[i - 1, j + 1] != 0) ? maTran[i - 1, j + 1] : 0;
+                    }
+                    catch
+                    {
+                        p9 = 0;
+                    }
+                    try
+                    {
+                        p10 = (maTran[i - 1, j + 2] != 0) ? maTran[i - 1, j + 2] : 0;
+                    }
+                    catch
+                    {
+                        p10 = 0;
+                    }
+
+
+                    //
+
+
+                    try
+                    {
+                        p11 = (maTran[i, j - 2] != 0) ? maTran[i, j - 2] : 0;
+                    }
+                    catch
+                    {
+                        p11 = 0;
+                    }
+                    try
+                    {
+                        p12 = (maTran[i, j - 1] != 0) ? maTran[i, j - 1] : 0;
+                    }
+                    catch
+                    {
+                        p12 = 0;
+                    }
+                    try
+                    {
+                        p13 = (maTran[i, j] != 0) ? maTran[i, j] : 0;
+                    }
+                    catch
+                    {
+                        p13 = 0;
+                    }
+                    try
+                    {
+                        p14 = (maTran[i, j + 1] != 0) ? maTran[i, j + 1] : 0;
+                    }
+                    catch
+                    {
+                        p14 = 0;
+                    }
+                    try
+                    {
+                        p15 = (maTran[i, j + 2] != 0) ? maTran[i, j + 2] : 0;
+                    }
+                    catch
+                    {
+                        p15 = 0;
+                    }
+
+                    //
+
+                    try
+                    {
+                        p16 = (maTran[i + 1, j - 2] != 0) ? maTran[i + 1, j - 2] : 0;
+                    }
+                    catch
+                    {
+                        p16 = 0;
+                    }
+                    try
+                    {
+                        p17 = (maTran[i + 1, j - 1] != 0) ? maTran[i + 1, j - 1] : 0;
+                    }
+                    catch
+                    {
+                        p17 = 0;
+                    }
+                    try
+                    {
+                        p18 = (maTran[i + 1, j] != 0) ? maTran[i + 1, j] : 0;
+                    }
+                    catch
+                    {
+                        p18 = 0;
+                    }
+                    try
+                    {
+                        p19 = (maTran[i + 1, j + 1] != 0) ? maTran[i + 1, j + 1] : 0;
+                    }
+                    catch
+                    {
+                        p19 = 0;
+                    }
+                    try
+                    {
+                        p20 = (maTran[i + 1, j + 2] != 0) ? maTran[i + 1, j + 2] : 0;
+                    }
+                    catch
+                    {
+                        p20 = 0;
+                    }
+
+
+                    //
+
+                    try
+                    {
+                        p21 = (maTran[i + 2, j - 2] != 0) ? maTran[i + 2, j - 2] : 0;
+                    }
+                    catch
+                    {
+                        p21 = 0;
+                    }
+                    try
+                    {
+                        p22 = (maTran[i + 2, j - 1] != 0) ? maTran[i + 2, j - 1] : 0;
+                    }
+                    catch
+                    {
+                        p22 = 0;
+                    }
+                    try
+                    {
+                        p23 = (maTran[i + 2, j] != 0) ? maTran[i + 2, j] : 0;
+                    }
+                    catch
+                    {
+                        p23 = 0;
+                    }
+                    try
+                    {
+                        p24 = (maTran[i + 2, j + 1] != 0) ? maTran[i + 2, j + 1] : 0;
+                    }
+                    catch
+                    {
+                        p24 = 0;
+                    }
+                    try
+                    {
+                        p25 = (maTran[i + 2, j + 2] != 0) ? maTran[i + 2, j + 2] : 0;
+                    }
+                    catch
+                    {
+                        p25 = 0;
+                    }
+
+
+                    double res = mask[0, 0] * p1 + mask[0, 1] * p2 + mask[0, 2] * p3 + mask[0, 3] * p4 + mask[0, 4] * p5
+                    + mask[1, 0] * p6 + mask[1, 1] * p7 + mask[1, 2] * p8 + mask[1, 3] * p9 + mask[1, 4] * p10
+                    + mask[2, 0] * p11 + mask[2, 1] * p12 + mask[2, 2] * p13 + mask[2, 3] * p14 + mask[2, 4] * p15
+                    + mask[3, 0] * p16 + mask[3, 1] * p17 + mask[3, 2] * p18 + mask[3, 3] * p19 + mask[3, 4] * p20
+                    + mask[4, 0] * p21 + mask[4, 1] * p22 + mask[4, 2] * p23 + mask[4, 3] * p24 + mask[4, 4] * p25;
+
+                    res = Math.Round(res, 3, MidpointRounding.AwayFromZero);
+                    Console.WriteLine($"G[{i},{j}] = {mask[0, 0]} * {p1} + {mask[0, 1]} * {p2} + {mask[0, 2]} * {p3} + {mask[0, 3]} * {p4} + {mask[0, 4]} * {p5} + {mask[1, 0]} * {p6 }+ {mask[1, 1]} * {p7 }+ {mask[1, 2]} * {p8 }+ {mask[1, 3]} * {p9 }+ {mask[1, 4]} * {p10} + {mask[2, 0]} * {p11} + {mask[2, 1]} * {p12} + {mask[2, 2]} * {p13} + {mask[2, 3]} * {p14} + {mask[2, 4]} * {p15} + {mask[3, 0]} * {p16} + {mask[3, 1]} * {p17} + {mask[3, 2]} * {p18} + {mask[3, 3]} * {p19} + {mask[3, 4]} * {p20} + {mask[4, 0]} * {p21} + {mask[4, 1]} * {p22} + {mask[4, 2]} * {p23} + {mask[4, 3]} * {p24} + {mask[4, 4]} * {p25} = {res}.");
                     Console.WriteLine();
+                    matrixResult[i, j] = res;
                 }
             }
         }
         System.Console.WriteLine();
 
-        System.Console.WriteLine("----------Ma trận sau khi lọc trung vị-------------");
+        System.Console.WriteLine("----------Ma trận sau khi lọc Gausssian-------------\n");
         for (int i = 0; i < 5; i++)
         {
             for (int j = 0; j < 5; j++)
             {
                 System.Console.Write(matrixResult[i, j] + "\t");
+            }
+            System.Console.WriteLine();
+        }
+        Console.WriteLine("\n Làm tròn: \n");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(Math.Round(matrixResult[i, j], MidpointRounding.AwayFromZero) + "\t");
             }
             System.Console.WriteLine();
         }

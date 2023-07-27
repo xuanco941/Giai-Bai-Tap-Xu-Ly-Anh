@@ -7,43 +7,43 @@ System.Console.WriteLine("Lọc nhiễu trung bình hình học, Laplacian, Tư�
 System.Console.WriteLine("-code by https://github.com/xuanco941-\n");
 double[,] maTran = new double[5, 5];
 
-// Console.WriteLine("Nhập ma trận 5x5 đầu vào: ");
-// for (int i = 0; i < 5; i++)
-// {
-//     for (int j = 0; j < 5; j++)
-//     {
-//         Console.WriteLine($"Điểm ({i},{j}): ");
-//         var x = Console.ReadLine();
-//         maTran[i, j] = Convert.ToDouble(x);
-//     }
-// }
+Console.WriteLine("Nhập ma trận 5x5 đầu vào: ");
+for (int i = 0; i < 5; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        Console.WriteLine($"Điểm ({i},{j}): ");
+        var x = Console.ReadLine();
+        maTran[i, j] = Convert.ToDouble(x);
+    }
+}
 
-//xuân
-maTran[0, 0] = 5;
-maTran[0, 1] = 7;
-maTran[0, 2] = 6;
-maTran[0, 3] = 4;
-maTran[0, 4] = 3;
-maTran[1, 0] = 2;
-maTran[1, 1] = 2;
-maTran[1, 2] = 3;
-maTran[1, 3] = 7;
-maTran[1, 4] = 5;
-maTran[2, 0] = 5;
-maTran[2, 1] = 6;
-maTran[2, 2] = 7;
-maTran[2, 3] = 2;
-maTran[2, 4] = 7;
-maTran[3, 0] = 4;
-maTran[3, 1] = 3;
-maTran[3, 2] = 5;
-maTran[3, 3] = 3;
-maTran[3, 4] = 3;
-maTran[4, 0] = 4;
-maTran[4, 1] = 4;
-maTran[4, 2] = 7;
-maTran[4, 3] = 5;
-maTran[4, 4] = 5;
+// // xuân
+// maTran[0, 0] = 5;
+// maTran[0, 1] = 7;
+// maTran[0, 2] = 6;
+// maTran[0, 3] = 4;
+// maTran[0, 4] = 3;
+// maTran[1, 0] = 2;
+// maTran[1, 1] = 2;
+// maTran[1, 2] = 3;
+// maTran[1, 3] = 7;
+// maTran[1, 4] = 5;
+// maTran[2, 0] = 5;
+// maTran[2, 1] = 6;
+// maTran[2, 2] = 7;
+// maTran[2, 3] = 2;
+// maTran[2, 4] = 7;
+// maTran[3, 0] = 4;
+// maTran[3, 1] = 3;
+// maTran[3, 2] = 5;
+// maTran[3, 3] = 3;
+// maTran[3, 4] = 3;
+// maTran[4, 0] = 4;
+// maTran[4, 1] = 4;
+// maTran[4, 2] = 7;
+// maTran[4, 3] = 5;
+// maTran[4, 4] = 5;
 
 
 
@@ -177,6 +177,9 @@ while (next == 1)
             break;
         case 17:
             thuattoan.GaussinanM();
+            break;
+        case 18:
+            thuattoan.LocGaussian(maTran);
             break;
     }
     System.Console.WriteLine();
