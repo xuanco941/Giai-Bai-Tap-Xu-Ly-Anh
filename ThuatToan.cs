@@ -2202,7 +2202,262 @@ class ThuatToan
                             Console.Write("-" + resultLists[t][o] + "-");
                         }
                     }
-                    t+=1;
+                    t += 1;
+                    Console.WriteLine();
+                }
+            }
+        }
+        System.Console.WriteLine();
+
+        System.Console.WriteLine("----------Ma trận sau khi lọc trung vị-------------");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                System.Console.Write(matrixResult[i, j] + "\t");
+            }
+            System.Console.WriteLine();
+        }
+    }
+
+    public void GaussinanM()
+    {
+        double sigma = 1;
+        Console.WriteLine("Nhập số sigma:");
+        sigma = Convert.ToDouble(Console.ReadLine());
+        GaussianMask(3, sigma);
+        Console.WriteLine();
+        GaussianMask(5, sigma);
+    }
+
+    static double[,] GaussianMask(int size, double sigma)
+    {
+        double[,] mask = new double[size, size];
+        double norm = 0;
+
+        int center = size / 2;
+        Console.WriteLine($"Áp dụng hàm Gaussian với σ = {sigma} để tính mặt mạ kích thước {size}x{size}:");
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                double x = i - center;
+                double y = j - center;
+
+                double exponent = -(x * x + y * y) / (2 * sigma * sigma);
+                double factor = 1 / (2 * Math.PI * sigma * sigma);
+                mask[i, j] = Math.Round(factor * Math.Exp(exponent), 3, MidpointRounding.AwayFromZero);
+                norm += mask[i, j];
+                Console.WriteLine($"G({i},{j}) = (1/(2π*{sigma}^2)*(-({x}^2+{y}^2)/(2*{sigma}^2)) = {mask[i, j]}");
+            }
+        }
+        norm = Math.Round(norm, 3, MidpointRounding.AwayFromZero);
+        PrintMatrix(mask);
+
+        // chuẩn hóa ma trận
+        Console.WriteLine("Chuẩn hóa bằng cách chia các phần tử cho tổng các phần tử:");
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                Console.WriteLine($"G({j},{j}) = {mask[i, j]}/{norm} = {Math.Round(mask[i, j] / norm, 3, MidpointRounding.AwayFromZero)}");
+                mask[i, j] = Math.Round(mask[i, j] / norm, 3, MidpointRounding.AwayFromZero);
+            }
+        }
+        PrintMatrix(mask);
+        return mask;
+
+    }
+
+    static void PrintMatrix(double[,] matrix)
+    {
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                Console.Write(matrix[i, j] + "\t");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    public void LocGaussian(double[,] maTran)
+
+    {
+        System.Console.WriteLine("Nhập kích thước (3 hoặc 5):");
+        double k = Convert.ToDouble(Console.ReadLine());
+        System.Console.WriteLine("----------Lọc Gaussian--------------");
+        System.Console.WriteLine("----------Kết quả----------");
+        double[,] matrixResult = new double[5, 5];
+        if (k == 3)
+        {
+            k = 3;
+            double[,] mask = new double[3, 3];
+            System.Console.WriteLine("m,n = 3");
+            Console.WriteLine("Nhập ma trận mặt nạ gaussian 3x3: ");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.WriteLine($"Điểm ({i},{j}): ");
+                    var x = Console.ReadLine();
+                    mask[i, j] = Convert.ToDouble(x);
+                }
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    double firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition, ninethPosition;
+
+                    try
+                    {
+                        firstPosition = (maTran[i - 1, j - 1] != 0) ? maTran[i - 1, j - 1] : 0;
+                    }
+                    catch
+                    {
+                        firstPosition = 0;
+                    }
+                    try
+                    {
+                        secondPosition = (maTran[i - 1, j] != 0) ? maTran[i - 1, j] : 0;
+                    }
+                    catch
+                    {
+                        secondPosition = 0;
+                    }
+                    try
+                    {
+                        thirdPosition = (maTran[i - 1, j + 1] != 0) ? maTran[i - 1, j + 1] : 0;
+                    }
+                    catch
+                    {
+                        thirdPosition = 0;
+                    }
+                    try
+                    {
+                        fourthPosition = (maTran[i, j - 1] != 0) ? maTran[i, j - 1] : 0;
+                    }
+                    catch
+                    {
+                        fourthPosition = 0;
+                    }
+                    try
+                    {
+                        fifthPosition = (maTran[i, j] != 0) ? maTran[i, j] : 0;
+                    }
+                    catch
+                    {
+                        fifthPosition = 0;
+                    }
+                    try
+                    {
+                        sixthPosition = (maTran[i, j + 1] != 0) ? maTran[i, j + 1] : 0;
+                    }
+                    catch
+                    {
+                        sixthPosition = 0;
+                    }
+                    try
+                    {
+                        seventhPosition = (maTran[i + 1, j - 1] != 0) ? maTran[i + 1, j - 1] : 0;
+                    }
+                    catch
+                    {
+                        seventhPosition = 0;
+                    }
+                    try
+                    {
+                        eighthPosition = (maTran[i + 1, j] != 0) ? maTran[i + 1, j] : 0;
+                    }
+                    catch
+                    {
+                        eighthPosition = 0;
+                    }
+                    try
+                    {
+                        ninethPosition = (maTran[i + 1, j + 1] != 0) ? maTran[i + 1, j + 1] : 0;
+                    }
+                    catch
+                    {
+                        ninethPosition = 0;
+                    }
+
+                    double res = mask[0, 0]*firstPosition + mask[0, 1]*secondPosition + mask[0, 2]*thirdPosition + mask[1, 0]*fourthPosition + mask[1, 1]*fifthPosition + mask[1, 2]*sixthPosition + mask[2, 0]*seventhPosition + mask[2, 1]*eighthPosition + mask[2, 2]*ninethPosition;
+                    res = Math.Round(res,3,MidpointRounding.AwayFromZero);
+                    Console.WriteLine($"G[{i},{j}] = ({mask[0, 0]}*{firstPosition}) + ({mask[0, 1]}*{secondPosition}) + ({mask[0, 2]}*{thirdPosition}) + ({mask[1, 0]}*{fourthPosition}) + ({mask[1, 1]}*{fifthPosition}) + ({mask[1, 2]}*{sixthPosition}) + ({mask[2, 0]}*{seventhPosition}) + ({mask[2, 1]}*{eighthPosition}) + ({mask[2, 2]}*{ninethPosition}) = {res}");
+
+                    matrixResult[i,j] = res;
+                }
+            }
+
+        }
+        else
+        {
+            k = 5;
+            System.Console.WriteLine("m,n = 5");
+
+            List<List<double>> resultLists = new List<List<double>>();
+
+            int arraySize = 5;
+            int range = 2; // Half of the range, so the total range is 5x5
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                for (int j = 0; j < arraySize; j++)
+                {
+                    List<double> currentList = new List<double>();
+
+                    for (int x = i - range; x <= i + range; x++)
+                    {
+                        for (int y = j - range; y <= j + range; y++)
+                        {
+                            if (x >= 0 && x < arraySize && y >= 0 && y < arraySize)
+                            {
+                                currentList.Add(maTran[x, y]);
+                            }
+                            else
+                            {
+                                currentList.Add(0); // Add 0 for elements outside the array boundaries
+                            }
+                        }
+                    }
+
+                    resultLists.Add(currentList);
+                }
+            }
+
+            // Printing the result lists
+            int t = 0;
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Console.WriteLine($"\nĐiểm[{i},{j}]:");
+                    for (int o = 0; o < 25; o++)
+                    {
+                        resultLists[t].Sort();
+                        if (o == 13)
+                        {
+                            matrixResult[i, j] = resultLists[t][13];
+                            Console.Write($"-[{resultLists[t][13]}]-");
+                        }
+                        else if (o == 0)
+                        {
+                            Console.Write(resultLists[t][o] + "-");
+                        }
+                        else if (o == 24)
+                        {
+                            Console.Write("-" + resultLists[t][o]);
+                        }
+                        else
+                        {
+                            Console.Write("-" + resultLists[t][o] + "-");
+                        }
+                    }
+                    t += 1;
                     Console.WriteLine();
                 }
             }

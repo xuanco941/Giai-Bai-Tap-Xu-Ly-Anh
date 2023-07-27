@@ -4,46 +4,46 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 Console.WriteLine("Áp Dụng Cho Ma Trận 5x5 !!! Hãy nhập tất cả bằng số !!!!");
 System.Console.WriteLine("Hiện có: Sobel và Prewitt, Alpha, Lọc nhị thức, Lọc nhiễu Min, Lọc nhiễu Max, Lọc nhiễu trung điểm, ");
 System.Console.WriteLine("Lọc nhiễu trung bình hình học, Laplacian, Tương quan, . . . .");
-System.Console.WriteLine("-code by xuan-\n");
+System.Console.WriteLine("-code by https://github.com/xuanco941-\n");
 double[,] maTran = new double[5, 5];
 
-Console.WriteLine("Nhập ma trận 5x5 đầu vào: ");
-for (int i = 0; i < 5; i++)
-{
-    for (int j = 0; j < 5; j++)
-    {
-        Console.WriteLine($"Điểm ({i},{j}): ");
-        var x = Console.ReadLine();
-        maTran[i, j] = Convert.ToDouble(x);
-    }
-}
+// Console.WriteLine("Nhập ma trận 5x5 đầu vào: ");
+// for (int i = 0; i < 5; i++)
+// {
+//     for (int j = 0; j < 5; j++)
+//     {
+//         Console.WriteLine($"Điểm ({i},{j}): ");
+//         var x = Console.ReadLine();
+//         maTran[i, j] = Convert.ToDouble(x);
+//     }
+// }
 
 //xuân
-// maTran[0, 0] = 5;
-// maTran[0, 1] = 7;
-// maTran[0, 2] = 6;
-// maTran[0, 3] = 4;
-// maTran[0, 4] = 3;
-// maTran[1, 0] = 2;
-// maTran[1, 1] = 2;
-// maTran[1, 2] = 3;
-// maTran[1, 3] = 7;
-// maTran[1, 4] = 5;
-// maTran[2, 0] = 5;
-// maTran[2, 1] = 6;
-// maTran[2, 2] = 7;
-// maTran[2, 3] = 2;
-// maTran[2, 4] = 7;
-// maTran[3, 0] = 4;
-// maTran[3, 1] = 3;
-// maTran[3, 2] = 5;
-// maTran[3, 3] = 3;
-// maTran[3, 4] = 3;
-// maTran[4, 0] = 4;
-// maTran[4, 1] = 4;
-// maTran[4, 2] = 7;
-// maTran[4, 3] = 5;
-// maTran[4, 4] = 5;
+maTran[0, 0] = 5;
+maTran[0, 1] = 7;
+maTran[0, 2] = 6;
+maTran[0, 3] = 4;
+maTran[0, 4] = 3;
+maTran[1, 0] = 2;
+maTran[1, 1] = 2;
+maTran[1, 2] = 3;
+maTran[1, 3] = 7;
+maTran[1, 4] = 5;
+maTran[2, 0] = 5;
+maTran[2, 1] = 6;
+maTran[2, 2] = 7;
+maTran[2, 3] = 2;
+maTran[2, 4] = 7;
+maTran[3, 0] = 4;
+maTran[3, 1] = 3;
+maTran[3, 2] = 5;
+maTran[3, 3] = 3;
+maTran[3, 4] = 3;
+maTran[4, 0] = 4;
+maTran[4, 1] = 4;
+maTran[4, 2] = 7;
+maTran[4, 3] = 5;
+maTran[4, 4] = 5;
 
 
 
@@ -112,6 +112,8 @@ void writeSomthing()
     System.Console.WriteLine("14.Tương quan");
     System.Console.WriteLine("15.Biến đổi ảnh sử dụng hàm logarit");
     System.Console.WriteLine("16.Trung vị");
+    System.Console.WriteLine("17.Mặt nạ Gaussian");
+    System.Console.WriteLine("18.Bộ lọc Gaussian");
     System.Console.WriteLine("----------------------------------------------------");
 }
 
@@ -172,6 +174,9 @@ while (next == 1)
             break;
         case 16:
             thuattoan.LocTrungVi(maTran);
+            break;
+        case 17:
+            thuattoan.GaussinanM();
             break;
     }
     System.Console.WriteLine();
