@@ -3,7 +3,7 @@ C#
 
 Hiện có: Sobel và Prewitt, Alpha, Lọc nhị thức, Lọc nhiễu Min, Lọc nhiễu Max, Lọc nhiễu trung điểm, Lọc nhiễu trung bình hình học, Dò biên Kirsch, Laplacian, LZW, Gaussian, . . . (TẤT CẢ ĐỀU GIẢI TỪNG BƯỚC, RÕ RÀNG TỪNG PHÉP TÍNH)
 # HƯỚNG DẪN SỬ DỤNG
---Máy tính phải cài .NET CORE version 6.0 trở lên 
+--Máy tính phải cài .NET CORE version 6.0 trở lên (tải tại https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
 --B1: TẢI VỀ VÀ GIẢI NÉN
 
