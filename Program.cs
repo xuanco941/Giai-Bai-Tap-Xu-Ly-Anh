@@ -47,37 +47,6 @@ for (int i = 0; i < 5; i++)
 
 
 
-
-
-// //linh
-// maTran[0, 0] = 6;
-// maTran[0, 1] = 1;
-// maTran[0, 2] = 0;
-// maTran[0, 3] = 4;
-// maTran[0, 4] = 3;
-// maTran[1, 0] = 3;
-// maTran[1, 1] = 6;
-// maTran[1, 2] = 3;
-// maTran[1, 3] = 7;
-// maTran[1, 4] = 6;
-// maTran[2, 0] = 3;
-// maTran[2, 1] = 4;
-// maTran[2, 2] = 5;
-// maTran[2, 3] = 6;
-// maTran[2, 4] = 3;
-// maTran[3, 0] = 4;
-// maTran[3, 1] = 2;
-// maTran[3, 2] = 2;
-// maTran[3, 3] = 0;
-// maTran[3, 4] = 1;
-// maTran[4, 0] = 1;
-// maTran[4, 1] = 6;
-// maTran[4, 2] = 3;
-// maTran[4, 3] = 2;
-// maTran[4, 4] = 4;
-
-
-
 Console.WriteLine();
 
 double[,] maTranClone = new double[5, 5];
@@ -114,6 +83,7 @@ void writeSomthing()
     System.Console.WriteLine("16.Trung vị");
     System.Console.WriteLine("17.Mặt nạ Gaussian");
     System.Console.WriteLine("18.Bộ lọc Gaussian");
+    System.Console.WriteLine("19.Kirsch");
     System.Console.WriteLine("----------------------------------------------------");
 }
 
@@ -180,6 +150,9 @@ while (next == 1)
             break;
         case 18:
             thuattoan.LocGaussian(maTran);
+            break;
+        case 19:
+            thuattoan.DoBienKirsch(maTran);
             break;
     }
     System.Console.WriteLine();
