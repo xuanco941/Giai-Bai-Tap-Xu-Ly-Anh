@@ -1688,8 +1688,8 @@ class ThuatToan
         {
 
             double s = ((cloneCDF[i] - minCDF) * (mucxam - 1)) / ((5 * 5) - minCDF);
-            double s2 = Math.Round(s, 4, MidpointRounding.AwayFromZero);
-            System.Console.WriteLine($"s{i}: (({cloneCDF[i]}-{minCDF})*({mucxam}-{1})/(5*5-{minCDF}) = {s2} = {Math.Round(s, MidpointRounding.AwayFromZero)}");
+            double s2 = Math.Round(s, 3, MidpointRounding.AwayFromZero);
+            System.Console.WriteLine($"s{i}: ({cloneCDF[i]}-{minCDF})*({mucxam}-{1})/(5*5-{minCDF}) = {s2} = {Math.Round(s, MidpointRounding.AwayFromZero)}");
             sk.Add(Math.Round(s, MidpointRounding.AwayFromZero));
         }
         System.Console.WriteLine();
@@ -1834,7 +1834,7 @@ class ThuatToan
                     //     }
                     // }
                     double TongCacDiem = (firstPosition + secondPosition + thirdPosition + fourthPosition + fifthPosition + sixthPosition + seventhPosition + eighthPosition + ninethPosition) / k;
-                    System.Console.WriteLine($"Itb({i},{j}): 1/{k}*({firstPosition}+{secondPosition}+{thirdPosition}+{fourthPosition}+{fifthPosition}+{sixthPosition}+{seventhPosition}+{eighthPosition}+{ninethPosition}) = {Math.Round(TongCacDiem, 4, MidpointRounding.AwayFromZero)} = {Math.Round(TongCacDiem, MidpointRounding.AwayFromZero)}");
+                    System.Console.WriteLine($"Itb({i},{j}) = 1/{k}*({firstPosition}+{secondPosition}+{thirdPosition}+{fourthPosition}+{fifthPosition}+{sixthPosition}+{seventhPosition}+{eighthPosition}+{ninethPosition}) = {Math.Round(TongCacDiem, 3, MidpointRounding.AwayFromZero)} = {Math.Round(TongCacDiem, MidpointRounding.AwayFromZero)}");
 
                     matrixResult[i, j] = Math.Round(TongCacDiem, MidpointRounding.AwayFromZero);
                 }
@@ -2067,7 +2067,7 @@ class ThuatToan
                     }
 
                     double TongCacDiem = (p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9 + p10 + p11 + p12 + p13 + p14 + p15 + p16 + p17 + p18 + p19 + p20 + p21 + p22 + p23 + p24 + p25) / k;
-                    System.Console.WriteLine($"Itb({i},{j}): 1/{k}*({p1}+{p2}+{p3}+{p4}+{p5}+{p6}+{p7}+{p8}+{p9}+{p10}+{p11}+{p12}+{p13}+{p14}+{p15}+{p16}+{p17}+{p18}+{p19}+{p20}+{p21}+{p22}+{p23}+{p24}+{p25}) = {Math.Round(TongCacDiem, 4, MidpointRounding.AwayFromZero)} = {Math.Round(TongCacDiem, MidpointRounding.AwayFromZero)}");
+                    System.Console.WriteLine($"Itb({i},{j}): 1/{k}*({p1}+{p2}+{p3}+{p4}+{p5}+{p6}+{p7}+{p8}+{p9}+{p10}+{p11}+{p12}+{p13}+{p14}+{p15}+{p16}+{p17}+{p18}+{p19}+{p20}+{p21}+{p22}+{p23}+{p24}+{p25}) = {Math.Round(TongCacDiem, 3, MidpointRounding.AwayFromZero)} = {Math.Round(TongCacDiem, MidpointRounding.AwayFromZero)}");
 
                     matrixResult[i, j] = Math.Round(TongCacDiem, MidpointRounding.AwayFromZero);
                 }
